@@ -1,0 +1,133 @@
+/*
+	@theme Cappuccino 
+	@override-placeholders html, css
+*/
+
+@base {
+	color:#7f7b67;
+	background-color:#272620;
+	insertion-point-color: #fff;
+	selection-background-color: #000;
+}
+
+tag, source, sourcecode {
+	spell-check: disabled; 
+}
+
+tag, 
+string > punctuation, 
+attribute-name
+{ color:#cda984; }
+
+string { color:rgb(242,235,199);}
+entity { }
+
+comment, 
+comment>punctuation, 
+tag.doctype, 
+tag.doctype > *, 
+tag.doctype > string.quoted 
+{ color: #aaa; }
+
+
+/* 
+	ExpressionEngine Tags
+*/
+
+ee.tag>name, 
+ee.tag > punctuation,
+ee.tag attribute-name { color:#9ecffd; }
+
+ee.tag.open > name > string {color:#8af299; }
+
+ee.tag.single,
+ee.tag.single > name, 
+ee.tag.single > punctuation, 
+ee.tag.single > name > attribute-name { color:#8af299;}
+
+ee.tag.self-closing,
+ee.tag.self-closing > name, 
+ee.tag.self-closing > punctuation, 
+ee.tag.self-closing > name > attribute-name { color:#8af299;}
+
+ee.tag.conditional { color:#9ecffd; }
+/* 
+	HTML
+*/
+
+/* None just yet :) */
+
+/* 
+	CSS
+*/
+
+selector.css { color:#7f7b67; }
+css property-list > property-value { color:#8af299; }
+css property-list > property-name { color:#9ecffd; }
+
+
+/* 
+	JS
+*/
+
+
+latex.function function - parameter, latex.keyword {
+	color:;
+}
+
+string.quoted {
+	color: ;
+}
+
+string.quoted > escape {
+	background-color: #e8ffd5;
+	font-weight: bold;
+}
+
+variable {
+	color: ;
+}
+
+variable>punctuation {
+	color: ;
+}
+
+operator {
+	color: ;
+}
+
+open-bracket, close-bracket {
+	color: ;
+}
+
+support.function, function-call {
+	color: ;
+	font-weight: boldd;
+}
+
+keyword.control, storage.type {
+	color:;
+}
+
+function > name {
+	color:;
+	font-weight: bold;
+}
+
+js.embedded {
+	color: ;
+}
+
+constant.numeric, constant.language {
+	color: ;
+	background-color: #f3f2ff;
+}
+
+invalid {
+	background-color: #f93232;
+	color: ;
+}
+
+textile > header {
+	font-weight: bold;
+}
