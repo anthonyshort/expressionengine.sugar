@@ -82,14 +82,18 @@
         </collection>
 
         <collection name="ee-comment">
-            <zone name="comment.block.ee">
+        		<zone name="processing-instruction.ee">
+            		<expression>\{!--(exp\:template)--\}</expression>
+            		<capture number="1" name="constant.name" />
+            	</zone>
+	          <zone name="comment.block.ee">
                 <starts-with>
                     <expression>{!--</expression>
                 </starts-with>
                 <ends-with>
                     <expression>--}</expression>
                 </ends-with>
-            </zone>
+            	</zone>
         </collection>
 
     </library>

@@ -5,4 +5,9 @@
 		<selector>ee.tag.single</selector>
 	</recipe>
 	
+	<recipe name="built-in.tag.processing-instruction">
+		<selector>processing-instruction.ee:has-child(name:capture(name))</selector>
+		<class>ESXMLItem</class>
+	</recipe>
+	
 </itemizer>
