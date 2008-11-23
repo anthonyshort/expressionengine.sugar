@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Libraries simply define lists of completions, categorized by keys. They don't define any criteria for when they should be used; this is the domain of a CodeSense Provider.
+
+-->
+<codesense version="1.0">
+	
+	<set name="com.expressionengine.tags.entries">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0{/#{completion}})</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="exp:weblog:entries"/>
+		<completion string="exp:weblog:categories"/>
+		<completion string="exp:comment:entries"/>
+		
+	</set>
+	
+	<set name="com.expressionengine.tags.modules">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0{/#{completion}})</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="exp:search:simple_form"/>
+		<completion string="exp:search:advanced_form"/>
+		<completion string="exp:stats"/>
+		<completion string="exp:comment:form"/>
+	</set>
+	
+	<set name="com.expressionengine.tags.pairs">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0{/#{completion}})</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="if"/>
+	</set>
+	
+	<set name="com.expressionengine.pairs.exp:weblog:entries">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0{/#{completion}})</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="date_heading"/>
+		<completion string="date_footer"/>
+		<completion string="categories"/>
+	</set>
+	
+	<!-- TODO Maybe move the embed and encode elsewhere -->
+	<set name="com.expressionengine.variables.global">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="app_version"/>
+		<completion string="charset"/>
+		<completion string="current_time"/>
+		<completion string="debug_mode"/>
+		<completion string="elapsed_time"/>
+		<completion string="email"/>
+		<completion string="group_id"/>
+		<completion string="gzip_mode"/>
+		<completion string="hits"/>
+		<completion string="homepage"/>
+		<completion string="ip_address"/>
+		<completion string="lang"/>
+		<completion string="location"/>
+		<completion string="member_group"/>
+		<completion string="member_id"/>
+		<completion string="member_profile_link"/>
+		<completion string="screen_name"/>
+		<completion string="site_name"/>
+		<completion string="total_comments"/>
+		<completion string="total_entries"/>
+		<completion string="total_queries"/>
+		<completion string="username"/>
+		<completion string="webmaster_email"/>
+		<completion string="embed"/>
+		<completion string="encode"/>
+	</set>
+
+	<set name="com.expressionengine.variables.exp:weblog:entries">
+		<completion string="aol_im"/>
+		<completion string="author"/>
+		<completion string="author_id"/>
+		<completion string="avatar_image_height"/>
+		<completion string="avatar_image_width"/>
+		<completion string="avatar_url"/>
+		<completion string="comment_auto_path"/>
+		<completion string="comment_entry_id_auto_path"/>
+		<completion string="comment_tb_total"/>
+		<completion string="comment_total"/>
+		<completion string="comment_url_title_auto_path"/>
+		<completion string="count"/>
+		<completion string="email"/>
+		<completion string="entry_id"/>
+		<completion string="entry_id_path="/>
+		<completion string="forum_topic_id"/>
+		<completion string="icq"/>
+		<completion string="interests"/>
+		<completion string="ip_address"/>
+		<completion string="location"/>
+		<completion string="member_search_path="/>
+		<completion string="msn_im"/>
+		<completion string="occupation"/>
+		<completion string="permalink="/>
+		<completion string="photo_url"/>
+		<completion string="photo_image_height"/>
+		<completion string="photo_image_width"/>
+		<completion string="profile_path="/>
+		<completion string="relative_date"/>
+		<completion string="relative_url"/>
+		<completion string="screen_name"/>
+		<completion string="signature"/>
+		<completion string="signature_image_height"/>
+		<completion string="signature_image_width"/>
+		<completion string="signature_image_url"/>
+		<completion string="status"/>
+		<completion string="switch="/>
+		<completion string="title"/>
+		<completion string="title_permalink"/>
+		<completion string="total_results"/>
+		<completion string="trackback_total"/>
+		<completion string="trimmed_url"/>
+		<completion string="url"/>
+		<completion string="url_or_email"/>
+		<completion string="url_or_email_as_author"/>
+		<completion string="url_or_email_as_link"/>
+		<completion string="url_title"/>
+		<completion string="url_title_path="/>
+		<completion string="username"/>
+		<completion string="weblog"/>
+		<completion string="weblog_id"/>
+		<completion string="yahoo_im"/>
+		
+		<completion string="entry_date"/>
+		<completion string="expiration_date"/>
+		<completion string="edit_date"/>
+		<completion string="gmt_entry_date"/>
+		<completion string="gmt_edit_date"/>
+		<completion string="recent_comment_date"/>
+		
+		<completion string="date_footer"/>
+		<completion string="date_heading"/>
+		<completion string="categories"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:comment:entries">
+		<completion string="absolute_count"/>		
+		<completion string="aol_im"/>
+		<completion string="author"/>
+		<completion string="author_id"/>
+		<completion string="avatar_image_height"/>
+		<completion string="avatar_image_width"/>
+		<completion string="avatar_url"/>
+		<completion string="blog_title"/>		
+		<completion string="comment_auto_path"/>
+		<completion string="comment_entry_id_auto_path"/>
+		<completion string="comment_id"/>
+		<completion string="comment_url_title_auto_path"/>
+		<completion string="count"/>
+		<completion string="entry_author_id"/>
+		<completion string="entry_id"/>
+		<completion string="entry_id_path"/>				
+		<completion string="icq"/>
+		<completion string="interests"/>
+		<completion string="ip_address"/>
+		<completion string="location"/>
+		<completion string="member_search_path"/>
+		<completion string="msn_im"/>
+		<completion string="occupation"/>
+		<completion string="name"/>		
+		<completion string="permalink"/>
+		<completion string="photo_url"/>
+		<completion string="photo_image_height"/>
+		<completion string="photo_image_width"/>
+		<completion string="signature"/>
+		<completion string="signature_image_height"/>
+		<completion string="signature_image_width"/>
+		<completion string="signature_image_url"/>
+		<completion string="switch"/>						
+		<completion string="title"/>
+		<completion string="total_comments"/>		
+		<completion string="total_results"/>
+		<completion string="url"/>
+		<completion string="url_or_email"/>
+		<completion string="url_or_email_as_author"/>
+		<completion string="url_or_email_as_link"/>
+		<completion string="url_title"/>
+		<completion string="url_title_path"/>
+		<completion string="weblog_id"/>
+		<completion string="yahoo_im"/>
+		
+		<completion string="comment_date"/>
+		<completion string="edit_date"/>
+		<completion string="gmt_comment_date"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:comment:form">
+		<completion string="name"/>
+		<completion string="email"/>
+		<completion string="location"/>
+		<completion string="url"/>
+		<completion string="comment"/>
+		<completion string="save_info"/>
+		<completion string="notify_me"/>
+		<completion string="captcha"/>
+		<completion string="captcha_word"/>
+	</set>
+		
+
+</codesense>

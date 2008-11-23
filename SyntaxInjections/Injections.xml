@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<injections>
+
+	<injection name="injections.ee.string.tag" selector="string.quoted.double" action="insert-after-children">
+		<zone name="ee.tag.single">
+			<starts-with>
+                    <expression>(\{)([a-zA-Z0-9_:]+)</expression>
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+                    <capture number="2" name="ee.constant.name"/>
+            </starts-with>
+            <ends-with>
+                <expression>\}</expression>
+                <capture number="1" name="ee.punctuation.definition.end"/>
+            </ends-with>
+			<subzones>
+                <zone name="constant.name.tag.ee">
+					<expression>(\w*)=[\"\']([\w\-\|]*)[\"\']</expression>
+					<capture number="1" name="ee.tag.attribute-name"/>
+					<capture number="2" name="ee.string.quoted.double"/>
+				</zone>
+            </subzones>
+		</zone>
+	</injection>
+
+	
+</injections>

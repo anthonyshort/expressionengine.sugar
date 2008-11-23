@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Providers map contexts in a document to possible completions. The actual completions are defined in the various CodeSense libraries, categorized using their key. A CodeSense Provider tells Espresso what CodeSense libraries are active in the current context. One of these XML files can contain many <provider> elements.
+
+-->
+<codesense>
+	
+	<provider>
+		<selector>text.html.ee, ee.tag.open, ee.tag.self-closing, ee.tag.open > end</selector>
+		<completions>com.expressionengine.variables.global</completions>
+		<completions>com.expressionengine.tags.entries</completions>
+		<completions>com.expressionengine.tags.pairs</completions>
+		<completions>com.expressionengine.tags.modules</completions>
+		
+		<!-- Remove this when I get tag specific variables right -->
+		<completions>com.expressionengine.variables.exp:weblog:entries</completions>
+		<completions>com.expressionengine.variables.exp:comment:entries</completions>
+		<completions>com.expressionengine.variables.exp:comment:form</completions>
+		
+		<complete-match capture="2">(\{)([a-zA-Z0-9-:]*)</complete-match>
+	</provider>
+	
+	<!-- Attributes -->
+	<provider>
+		<selector>ee.tag.open:has-child(name:capture(name)), ee.tag.self-closing:has-child(name:capture(name))</selector>
+		<completions>com.expressionengine.tags.${name}.attributes</completions>
+		<complete-match capture="2">(\s)([a-zA-Z0-9-]*)</complete-match>
+	</provider>
+	
+	<!-- Attribute Values -->
+	<provider>
+		<selector>ee.tag.open > constant.name.tag.ee:has-child(attribute-name:capture(value)), ee.tag.self-closing > constant.name.tag.ee:has-child(attribute-name:capture(value)) </selector>
+		<completions>com.expressionengine.tags.attributes.${value}</completions>
+		<complete-match capture="2">("|'|)([a-zA-Z0-9-\s]*)</complete-match>
+	</provider> 
+	
+	<!-- Tag Specific Values -->
+<!--<provider>
+		<selector>ee.tag.open:has-child(name:capture(name)) - ee.tag.close:has-child(name[text == $name.text])</selector>
+		<completions>com.expressionengine.variables.${name}</completions>
+		<complete-match capture="2">(\{)([a-zA-Z0-9-]*)</complete-match>
+	</provider>-->
+	
+</codesense>
