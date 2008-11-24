@@ -16,6 +16,18 @@ Only tasks with **DONE** have been completed, and even then, they still might ch
 - Standardize syntax names more
 - Behaviours (Autocomplete after codesense) is a bit dodgy. Make these more usable.
 
+### Snippets
+
+- Unavailable in this build
+
+### TextActions
+
+- Not Started
+
+### FileActions
+
+- Not Started
+
 ### Weblog Entries Tag
 
 - Parameters **DONE**
