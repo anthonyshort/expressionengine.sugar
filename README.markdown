@@ -11,6 +11,11 @@ The syntax is broken if a } is placed inside an attribute value. For example {ex
 
 Only tasks with **DONE** have been completed, and even then, they still might change.
 
+### General Tasks
+
+- Standardize syntax names more
+- Behaviours (Autocomplete after codesense) is a bit dodgy. Make these more usable.
+
 ### Weblog Entries Tag
 
 - Parameters **DONE**
