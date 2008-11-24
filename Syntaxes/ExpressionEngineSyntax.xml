@@ -23,10 +23,11 @@
                 </ends-with>
                 <subzones>
                     <zone name="constant.name.tag.ee">
-						<expression>(\w*)=[\"\']([\w\-\|]*)[\"\']</expression>
-						<capture number="0" name="ee.punctuation.definition.begin"/>
+						<expression>(\w*)=([\"\'])([\w\-\|]*)([\"\'])</expression>
 						<capture number="1" name="ee.tag.attribute-name"/>
 						<capture number="2" name="ee.string.quoted.double"/>
+						<capture number="3" name="ee.tag.attribute-value"/>
+						<capture number="4" name="ee.string.quoted.double"/>
 					</zone> 
                 </subzones>
             </zone>

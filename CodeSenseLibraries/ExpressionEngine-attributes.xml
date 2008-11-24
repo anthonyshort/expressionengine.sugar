@@ -9,7 +9,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>\s?|[^=]</matched-suffix>
-				<transform-into>(?1::="#1" #0)</transform-into>
+				<transform-into>(?1::="#1"#0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		

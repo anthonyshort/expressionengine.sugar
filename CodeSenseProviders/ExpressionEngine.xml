@@ -23,9 +23,9 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 	
 	<!-- Attributes -->
 	<provider>
-		<selector>ee.tag.open:has-child(name:capture(name)), ee.tag.self-closing:has-child(name:capture(name))</selector>
+		<selector>ee.tag.open:has-child(name:capture(name)), ee.tag.self-closing:has-child(name:capture(name)), ee.tag.open:has-child(name:capture(name)) > ee.end, ee.tag.self-closing:has-child(name:capture(name)) > ee.end</selector>
 		<completions>com.expressionengine.tags.${name}.attributes</completions>
-		<complete-match capture="2">(\s)([a-zA-Z0-9-]*)</complete-match>
+		<complete-match capture="2">(\s)([a-zA-Z0-9]*)</complete-match>
 	</provider>
 	
 	<!-- Attribute Values -->
