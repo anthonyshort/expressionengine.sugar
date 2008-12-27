@@ -38,6 +38,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 			<completion string="display_by"/>
 			<completion string="dynamic"/>
 			<completion string="dynamic_start"/>
+			<completion string="dynamic_parameters"/>
 			<completion string="entry_id"/>
 			<completion string="entry_id_from"/>
 			<completion string="entry_id_to"/>
@@ -106,6 +107,123 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 			<completion string="preview"/>
 			<completion string="url_title"/>
 			<completion string="entry_id"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.if.attributes">
+			<completion string="allow_comments"/>
+			<completion string="allow_trackbacks"/>
+			<completion string="avatar"/>
+			<completion string="category_request"/>
+			<completion string="count"/>
+			<completion string="forum_topic"/>
+			<completion string="no_results"/>
+			<completion string="not_category_request"/>
+			<completion string="not_forum_topic"/>
+			<completion string="signature_image"/>
+			<completion string="sticky"/>
+			
+			<completion string="previous_page">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into></transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+			
+			<completion string="next_page">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into></transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+		</set>
+		
+		<set name="com.expressionengine.tags.date_heading.attributes">
+			<completion string="display"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.date_footer.attributes">
+			<completion string="display"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.categories.attributes">
+			<completion string="limit"/>
+			<completion string="backspace"/>
+			<completion string="show"/>
+			<completion string="show_group"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:info.attributes">
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:month_links">
+			<completion string="limit"/>
+			<completion string="show_expired"/>
+			<completion string="show_future_entries"/>
+			<completion string="sort"/>
+			<completion string="status"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:calendar.attributes">
+			<completion string="leading_zeroes"/>
+			<completion string="month"/>
+			<completion string="year"/>
+			<completion string="show_future_entries"/>
+			<completion string="start_day"/>
+			<completion string="switch"/>			
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:categories.attributes">
+			<completion string="backspace"/>
+			<completion string="category_group"/>
+			<completion string="class"/>
+			<completion string="disable"/>
+			<completion string="id"/>
+			<completion string="parent_only"/>
+			<completion string="show"/>
+			<completion string="show_empty"/>
+			<completion string="status"/>
+			<completion string="style"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:category_archive.attributes">
+			<completion string="backspace"/>
+			<completion string="class"/>
+			<completion string="disable"/>
+			<completion string="id"/>
+			<completion string="orderby"/>
+			<completion string="show"/>
+			<completion string="show_empty"/>
+			<completion string="show_future_entries"/>
+			<completion string="sort"/>
+			<completion string="status"/>
+			<completion string="style"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:category_heading.attributes">
+			<completion string="disable"/>
+			<completion string="relaxed_categories"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.related_entries.attributes">
+			<completion string="id"/>	
+		</set>
+		
+		<set name="com.expressionengine.tags.reverse_related_entries.attributes">
+			<completion string="weblog"/>
+			<completion string="status"/>
+			<completion string="sort"/>
+			<completion string="orderby"/>
+			<completion string="offset"/>
+			<completion string="limit"/>
 		</set>
 			
 </codesense>

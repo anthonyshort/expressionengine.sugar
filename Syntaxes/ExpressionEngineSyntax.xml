@@ -2,32 +2,82 @@
 <syntax name="text.html.ee">
 	
     <zones>
+	
+		<zone name="processing-instruction.ee">
+    		<expression>\{!--(exp\:template)--\}</expression>
+    		<capture number="1" name="processing-instruction.entity.name" />
+    	</zone>
+
 		<include syntax="text.html.basic"/>
+		<include collection="ee-comment"/>
         <include collection="ee-tag"/>
-        <include collection="ee-comment"/>
     </zones>
 
     <library>
 
         <collection name="ee-tag">
 
+			<!-- This would be much simpler if we could use captures in start and end regexs -->
+			<zone name="ee.tag">
+		       <starts-with>
+		            <expression>(\{)(exp:weblog:entries|exp:weblog:categories|exp:search:simple_form|exp:search:advanced_form|exp:stats|exp:comment:form|exp:comment:entries|exp:weblog:info|exp:weblog:next_entry|exp:weblog:prev_entry|exp:weblog:month_links|exp:weblog:calendar|exp:weblog:categories|exp:weblog:category_archive|date\_heading|date\_footer|categories|paginate|related_entries|entry_titles|if).*?(\})</expression>
+					<capture number="0" name="ee.tag.open" />
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+                    <capture number="2" name="ee.entity.name"/>
+					<capture number="3" name="ee.punctuation.definition.end"/>
+		        </starts-with>
+		        <ends-with>
+		            <expression>(/?)(\{\/)(exp:weblog:entries|exp:weblog:categories|exp:search:simple_form|exp:search:advanced_form|exp:stats|exp:comment:form|exp:comment:entries|exp:weblog:info|exp:weblog:next_entry|exp:weblog:prev_entry|exp:weblog:month_links|exp:weblog:calendar|exp:weblog:categories|exp:weblog:category_archive|date\_heading|date\_footer|categories|paginate|related_entries|entry_titles|if)(\})</expression>
+					<capture number="0" name="ee.tag.close" />
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+                    <capture number="2" name="ee.entity.name"/>
+					<capture number="3" name="ee.punctuation.definition.end"/>
+		        </ends-with>
+				<subzones>
+					<include syntax="text.html.basic"/>
+			        <include collection="ee-tag"/>
+			        <include collection="ee-comment"/>
+				</subzones>
+		    </zone>
+			<!--
             <zone name="ee.tag.open">
                <starts-with>
                     <expression>(\{)(exp\:[a-zA-Z0-9_:]+)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
-                    <capture number="2" name="ee.constant.name"/>
+                    <capture number="2" name="ee.entity.name"/>
                 </starts-with>
                 <ends-with>
                     <expression>(/?)(\})</expression>
                     <capture number="2" name="ee.punctuation.definition.end"/>
                 </ends-with>
                 <subzones>
-                    <zone name="constant.name.tag.ee">
-						<expression>(\w*)=([\"\'])([\w\-\|]*)([\"\'])</expression>
-						<capture number="1" name="ee.tag.attribute-name"/>
-						<capture number="2" name="ee.string.quoted.double"/>
-						<capture number="3" name="ee.tag.attribute-value"/>
-						<capture number="4" name="ee.string.quoted.double"/>
+                    <zone name="ee.attribute">
+						<expression>(\w*)=([\"\'])([\s\w\-\|]*)([\"\'])</expression>
+						<capture number="1" name="ee.attribute-name"/>
+						<capture number="2" name="ee.punctuation.definition.begin"/>
+						<capture number="3" name="ee.attribute-value"/>
+						<capture number="4" name="ee.punctuation.definition.end"/>
+					</zone> 
+                </subzones>
+            </zone>
+
+			<zone name="ee.tag.pair">
+               <starts-with>
+                    <expression>(\{)(date\_heading|date\_footer|categories|paginate|related_entries|entry_titles)</expression>
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+                    <capture number="2" name="ee.entity.name"/>
+                </starts-with>
+                <ends-with>
+                    <expression>(/?)(\})</expression>
+                    <capture number="2" name="ee.punctuation.definition.end"/>
+                </ends-with>
+                <subzones>
+                    <zone name="ee.attribute">
+						<expression>(\w*)=([\"\'])([\s\w\-\|]*)([\"\'])</expression>
+						<capture number="1" name="ee.attribute-name"/>
+						<capture number="2" name="ee.punctuation.definition.begin"/>
+						<capture number="3" name="ee.attribute-value"/>
+						<capture number="4" name="ee.punctuation.definition.end"/>
 					</zone> 
                 </subzones>
             </zone>
@@ -35,58 +85,58 @@
             <zone name="ee.tag.close">
                 <expression>(\{\/)(.+?)(\})</expression>
 				<capture number="1" name="ee.punctuation.definition.begin"/>
-				<capture number="2" name="constant.name"/>
+				<capture number="2" name="ee.entity.name"/>
 				<capture number="3" name="ee.punctuation.definition.end"/>
             </zone>
 
-			<zone name="ee.tag.open.conditional">
+			<zone name="ee.tag.conditional">
 				<starts-with>
 		            <expression>(\{)(if)[^\:](.*?)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
-		            <capture number="2" name="ee.constant.name"/>
-					<capture number="1" name="ee.punctuation.definition.end"/>
+		            <capture number="2" name="ee.entity.name"/>
+					<capture number="3" name="ee.punctuation.definition.end"/>
 				</starts-with>
 				<ends-with>
 					<expression>(/?)(\})</expression>
 					<capture number="2" name="ee.punctuation.definition.end"/>
 				</ends-with>
 				<subzones>
-					<zone name="constant.name.tag.ee">
-						<expression>(\w*)=*[\"\']([\w\-\|]*)[\"\']</expression>
-						<capture number="1" name="ee.tag.attribute-name"/>
-						<capture number="2" name="ee.string.quoted.double"/>
+					<zone name="ee.attribute">
+						<expression>(\w*)=*([\"\'])([\w\-\|]*)[\"\']</expression>
+						<capture number="1" name="ee.attribute-name"/>
+						<capture number="2" name="ee.punctuation.definition.begin"/>
+						<capture number="3" name="ee.attribute-value" />
+						<capture number="4" name="ee.punctuation.definition.end"/>
 					</zone>
 					<include syntax="text.html.basic" />
 					<include collection="ee-tag" />
 				</subzones>
-			</zone>
+			</zone> -->
 			
 			<zone name="ee.tag.self-closing">
 				<starts-with>
 	                    <expression>(\{)([a-zA-Z0-9_:]+)</expression>
 						<capture number="1" name="ee.punctuation.definition.begin"/>
-	                    <capture number="2" name="ee.constant.name"/>
+	                    <capture number="2" name="ee.entity.name"/>
 	            </starts-with>
                 <ends-with>
                     <expression>(/?)(\})</expression>
                     <capture number="2" name="ee.punctuation.definition.end"/>
                 </ends-with>
 				<subzones>
-                    <zone name="constant.name.tag.ee">
-						<expression>(\w*)=[\"\']([\w\-\|]*)[\"\']</expression>
-						<capture number="1" name="ee.tag.attribute-name"/>
-						<capture number="2" name="ee.string.quoted.double"/>
+					<zone name="ee.attribute">
+						<expression>(\w*)=*([\"\'])([\w\-\|]*)[\"\']</expression>
+						<capture number="1" name="ee.attribute-name"/>
+						<capture number="2" name="ee.punctuation.definition.begin"/>
+						<capture number="3" name="ee.attribute-value" />
+						<capture number="4" name="ee.punctuation.definition.end"/>
 					</zone>
                 </subzones>
-			</zone>
+			</zone> 
 			
         </collection>
 
         <collection name="ee-comment">
-        		<zone name="processing-instruction.ee">
-            		<expression>\{!--(exp\:template)--\}</expression>
-            		<capture number="1" name="constant.name" />
-            	</zone>
 	          <zone name="comment.block.ee">
                 <starts-with>
                     <expression>{!--</expression>

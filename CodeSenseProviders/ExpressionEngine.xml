@@ -7,39 +7,34 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 <codesense>
 	
 	<provider>
-		<selector>text.html.ee, ee.tag.open, ee.tag.self-closing, ee.tag.open > end</selector>
+		<selector>text.html.ee, ee.tag.open, ee.tag.self-closing</selector>
 		<completions>com.expressionengine.variables.global</completions>
-		<completions>com.expressionengine.tags.entries</completions>
 		<completions>com.expressionengine.tags.pairs</completions>
-		<completions>com.expressionengine.tags.modules</completions>
-		
-		<!-- Remove this when I get tag specific variables right -->
-		<completions>com.expressionengine.variables.exp:weblog:entries</completions>
-		<completions>com.expressionengine.variables.exp:comment:entries</completions>
-		<completions>com.expressionengine.variables.exp:comment:form</completions>
-		
+		<completions>com.expressionengine.tags.modules</completions>		
 		<complete-match capture="2">(\{)([a-zA-Z0-9-:]*)</complete-match>
 	</provider>
 	
 	<!-- Attributes -->
 	<provider>
-		<selector>ee.tag.open:has-child(name:capture(name)), ee.tag.self-closing:has-child(name:capture(name)), ee.tag.open:has-child(name:capture(name)) > ee.end, ee.tag.self-closing:has-child(name:capture(name)) > ee.end</selector>
+		<selector>ee.tag:has-child(entity:capture(name)),ee.tag:has-child(entity:capture(name)) > ee.end</selector>
 		<completions>com.expressionengine.tags.${name}.attributes</completions>
 		<complete-match capture="2">(\s)([a-zA-Z0-9]*)</complete-match>
 	</provider>
 	
-	<!-- Attribute Values -->
-	<provider>
-		<selector>ee.tag.open > constant.name.tag.ee:has-child(attribute-name:capture(value)), ee.tag.self-closing > constant.name.tag.ee:has-child(attribute-name:capture(value)) </selector>
-		<completions>com.expressionengine.tags.attributes.${value}</completions>
-		<complete-match capture="2">("|'|)([a-zA-Z0-9-\s]*)</complete-match>
-	</provider> 
+	 <!-- Attribute Values -->
+	 <provider>
+		<!-- it doesnt seem to be putting the captured attribute name into the completion string -->
+	    <selector>ee.attribute:has-child(attribute-name:capture(val))</selector>
+	    <completions>com.expressionengine.tags.attributes.${val}</completions>
+	    <complete-match capture="2">(\s)([a-zA-Z0-9-]*)</complete-match>
+	  </provider>
 	
-	<!-- Tag Specific Values -->
-<!--<provider>
-		<selector>ee.tag.open:has-child(name:capture(name)) - ee.tag.close:has-child(name[text == $name.text])</selector>
+	<!-- Context Specific Variables -->
+	<provider>
+		<selector>ee.tag:has-child(open:has-child(name:capture(name))), ee.tag:has-child(open:has-child(name:capture(name))) > ee.tag.self-closing</selector>
 		<completions>com.expressionengine.variables.${name}</completions>
-		<complete-match capture="2">(\{)([a-zA-Z0-9-]*)</complete-match>
-	</provider>-->
+		<completions>com.expressionengine.pairs.${name}</completions>
+		<complete-match capture="2">(\{)([a-zA-Z0-9]*)</complete-match>
+	</provider>
 	
 </codesense>

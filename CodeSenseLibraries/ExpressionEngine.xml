@@ -6,7 +6,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 -->
 <codesense version="1.0">
 	
-	<set name="com.expressionengine.tags.entries">
+	<set name="com.expressionengine.tags.modules">
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
@@ -15,21 +15,19 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		</behavior>
 		<completion string="exp:weblog:entries"/>
 		<completion string="exp:weblog:categories"/>
-		<completion string="exp:comment:entries"/>
-		
-	</set>
-	
-	<set name="com.expressionengine.tags.modules">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0{/#{completion}})</transform-into>
-			</append-dynamic>
-		</behavior>
 		<completion string="exp:search:simple_form"/>
 		<completion string="exp:search:advanced_form"/>
 		<completion string="exp:stats"/>
 		<completion string="exp:comment:form"/>
+		<completion string="exp:comment:entries"/>
+		<completion string="exp:weblog:info"/>
+		<completion string="exp:weblog:next_entry"/>
+		<completion string="exp:weblog:prev_entry"/>
+		<completion string="exp:weblog:month_links"/>
+		<completion string="exp:weblog:calendar"/>
+		<completion string="exp:weblog:categories"/>
+		<completion string="exp:weblog:category_archive"/>
+		
 	</set>
 	
 	<set name="com.expressionengine.tags.pairs">
@@ -52,6 +50,9 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="date_heading"/>
 		<completion string="date_footer"/>
 		<completion string="categories"/>
+		<completion string="related_entries"/>
+		<completion string="reverse_related_entries"/>
+		<completion string="paginate"/>
 	</set>
 	
 	<!-- TODO Maybe move the embed and encode elsewhere -->
@@ -90,6 +91,12 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 	</set>
 
 	<set name="com.expressionengine.variables.exp:weblog:entries">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		<completion string="aol_im"/>
 		<completion string="author"/>
 		<completion string="author_id"/>
@@ -149,13 +156,15 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="gmt_entry_date"/>
 		<completion string="gmt_edit_date"/>
 		<completion string="recent_comment_date"/>
-		
-		<completion string="date_footer"/>
-		<completion string="date_heading"/>
-		<completion string="categories"/>
 	</set>
 	
 	<set name="com.expressionengine.variables.exp:comment:entries">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		<completion string="absolute_count"/>		
 		<completion string="aol_im"/>
 		<completion string="author"/>
@@ -207,6 +216,12 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 	</set>
 	
 	<set name="com.expressionengine.variables.exp:comment:form">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
 		<completion string="name"/>
 		<completion string="email"/>
 		<completion string="location"/>
@@ -217,6 +232,126 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="captcha"/>
 		<completion string="captcha_word"/>
 	</set>
-		
+	
+	<set name="com.expressionengine.variables.paginate">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="auto_path"/>
+		<completion string="current_page"/>
+		<completion string="pagination_links"/>
+		<completion string="total_pages"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:weblog:info">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="blog_description"/>
+		<completion string="blog_encoding"/>
+		<completion string="blog_lang"/>
+		<completion string="blog_title"/>
+		<completion string="blog_url"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:weblog:month_links">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="month"/>
+		<completion string="month_num"/>
+		<completion string="month_short"/>
+		<completion string="path"/>
+		<completion string="year"/>
+		<completion string="year_short"/>
+	</set>	
+	
+	<set name="com.expressionengine.variables.exp:weblog:calendar">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="author"/>
+		<completion string="comment_auto_path"/>
+		<completion string="comment_entry_id_auto_path"/>
+		<completion string="comment_path"/>
+		<completion string="comment_url_title_auto_path"/>
+		<completion string="comment_tb_total"/>
+		<completion string="comment_total"/>
+		<completion string="date"/>
+		<completion string="day_number"/>
+		<completion string="day_path"/>
+		<completion string="entry_id"/>
+		<completion string="next_date"/>
+		<completion string="next_path"/>
+		<completion string="permalink"/>
+		<completion string="previous_path"/>
+		<completion string="previous_date"/>
+		<completion string="profile_path"/>
+		<completion string="switch"/>
+		<completion string="title"/>
+		<completion string="title_permalink"/>
+		<completion string="trackback_path"/>
+		<completion string="trackback_total"/>
+		<completion string="url_title_path"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:weblog:categories">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="category_description"/>
+		<completion string="category_id"/>
+		<completion string="category_image"/>
+		<completion string="category_name"/>
+		<completion string="category_url_title"/>
+		<completion string="count"/>
+		<completion string="path"/>
+		<completion string="total_results"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:weblog:category_archive">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="category_description"/>
+		<completion string="category_id"/>
+		<completion string="category_image"/>
+		<completion string="category_name"/>
+		<completion string="category_url_title"/>
+		<completion string="path"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.exp:weblog:category_heading">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::}#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="category_description"/>
+		<completion string="category_id"/>
+		<completion string="category_image"/>
+		<completion string="category_name"/>
+		<completion string="category_url_title"/>
+	</set>
+	
 
 </codesense>
