@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	
+	ExpressionEngine Sugar
+	Created by Anthony Short
+	Latest Releases @ http://anthonyshort.com.au/projects/details/ee-sugar/
+	
+-->
+
+<settings>
+	
+	<language id="expressionengine">
+		
+		<!-- Should really be syntax-name -->
+		<root-zone>text.html.ee</root-zone>
+		<name>ExpressionEngine</name>
+		<detectors>
+			<match-content lines="1">{!--exp:template--}</match-content>
+		</detectors>
+		
+	</language>
+	
+</settings>

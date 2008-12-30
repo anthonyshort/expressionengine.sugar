@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Libraries simply define lists of completions, categorized by keys. They don't define any criteria for when they should be used; this is the domain of a CodeSense Provider.
+
+-->
+<codesense version="1.0">
+	
+		<set name="com.expressionengine.tags.attributes.cache">
+			<completion string="yes"/>
+			<completion string="no"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.disable">
+			<completion string="categories"/>
+			<completion string="category_fields"/>
+			<completion string="custom_fields"/>
+			<completion string="member_data"/>
+			<completion string="pagination"/>
+			<completion string="trackbacks"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.display_by">
+			<completion string="day"/>
+			<completion string="month"/>
+			<completion string="week"/>	
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.dynamic">
+			<completion string="off"/>
+			<completion string="on"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.dynamic_start">
+			<completion string="off"/>
+			<completion string="on"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.paginate">
+			<completion string="top"/>
+			<completion string="bottom"/>
+			<completion string="both"/>
+		</set>
+
+		<!-- TODO Fix this completion -->
+		<set name="com.expressionengine.tags.attributes.paginate_base">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>[\"|\']?</matched-suffix>
+					<transform-into>(?1::"#{1:template_group/template}" #0)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.paginate_field">
+			<completion string="top"/>
+			<completion string="bottom"/>
+			<completion string="both"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.rdf">
+			<completion string="off"/>
+			<completion string="on"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.related_categories_mode">
+			<completion string="off"/>
+			<completion string="on"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.relaxed_categories">
+			<completion string="yes"/>
+			<completion string="no"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.require_entry">
+			<completion string="yes"/>
+			<completion string="no"/>
+		</set>
+
+		<!-- TODO Add search with completion -->
+
+		<set name="com.expressionengine.tags.attributes.show_current_week">
+			<completion string="yes"/>
+			<completion string="no"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.show_expired">
+			<completion string="yes"/>
+			<completion string="no"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.show_future_entries">
+			<completion string="yes"/>
+			<completion string="no"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.show_pages">
+			<completion string="yes"/>
+			<completion string="no"/>
+			<completion string="only"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.sort">
+			<completion string="asc"/>
+			<completion string="desc"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.start_day">
+			<completion string="Monday"/>
+			<completion string="Tuesday"/>
+			<completion string="Wednesday"/>
+			<completion string="Thursday"/>
+			<completion string="Friday"/>
+			<completion string="Saturday"/>
+			<completion string="Sunday"/>
+		</set>
+
+		<!-- TODO Add start_on and stop_before with auto complete with YYYY-MM-DD HH:MM AM -->
+
+		<set name="com.expressionengine.tags.attributes.status">
+			<completion string="open"/>
+			<completion string="closed"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.sticky">
+			<completion string="off"/>
+			<completion string="on"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.track_views">
+			<completion string="one"/>
+			<completion string="two"/>
+			<completion string="three"/>
+			<completion string="four"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.uncategorized_entries">
+			<completion string="y"/>
+			<completion string="n"/>
+		</set>
+
+		<set name="com.expressionengine.tags.attributes.week_sort">
+			<completion string="asc"/>
+			<completion string="desc"/>
+		</set>
+		
+</codesense>

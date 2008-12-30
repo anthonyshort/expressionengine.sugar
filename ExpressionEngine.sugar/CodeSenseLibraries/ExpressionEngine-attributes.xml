@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Libraries simply define lists of completions, categorized by keys. They don't define any criteria for when they should be used; this is the domain of a CodeSense Provider.
+
+-->
+<codesense version="1.0">
+	
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>\s?|[^=]</matched-suffix>
+				<transform-into>(?1::="#1"#0)</transform-into>
+			</append-dynamic>
+		</behavior>
+		
+		<set name="com.expressionengine.tags.exp:comment:entries.attributes">
+			<completion string="dynamic"/>
+			<completion string="entry_id"/>
+			<completion string="limit"/>
+			<completion string="orderby"/>
+			<completion string="paginate"/>
+			<completion string="paginate_base"/>
+			<completion string="show_expired"/>
+			<completion string="sort"/>
+			<completion string="url_title"/>
+			<completion string="weblog"/>	
+		</set>
+
+		<set name="com.expressionengine.tags.exp:weblog:entries.attributes">
+			<completion string="author_id"/>
+			<completion string="backspace"/>
+			<completion string="cache"/>
+			<completion string="refresh"/>
+			<completion string="cat_limit"/>
+			<completion string="category"/>
+			<completion string="category_group"/>
+			<completion string="disable"/>
+			<completion string="display_by"/>
+			<completion string="dynamic"/>
+			<completion string="dynamic_start"/>
+			<completion string="dynamic_parameters"/>
+			<completion string="entry_id"/>
+			<completion string="entry_id_from"/>
+			<completion string="entry_id_to"/>
+			<completion string="fixed_order"/>
+			<completion string="group_id"/>
+			<completion string="limit"/>
+			<completion string="month_limit"/>
+			<completion string="month_limit"/>
+			<completion string="offset"/>
+			<completion string="order_by"/>
+			<completion string="paginate"/>
+			<completion string="paginate_base"/>
+			<completion string="paginate_type"/>
+			<completion string="rdf"/>
+			<completion string="related_categories"/>
+			<completion string="relaxed_categories"/>
+			<completion string="require_entry"/>
+			<completion string="search:body"/>
+			<completion string="show_current"/>
+			<completion string="show_expired"/>
+			<completion string="show_future_entries"/>
+			<completion string="show_pages"/>
+			<completion string="sort"/>
+			<completion string="start_day"/>
+			<completion string="start_on"/>
+			<completion string="status"/>
+			<completion string="stop_before"/>
+			<completion string="sticky"/>
+			<completion string="track_views"/>
+			<completion string="uncategorized_entries"/>
+			<completion string="url_title"/>
+			<completion string="username"/>
+			<completion string="weblog"/>
+			<completion string="week_sort"/>
+			<completion string="year"/>
+			<completion string="month"/>
+			<completion string="day"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:search:simple_form.attributes">
+			<completion string="result_page"/>
+			<completion string="weblog"/>			
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:search:advanced_form.attributes">
+			<completion string="category"/>
+			<completion string="cat_style"/>
+			<completion string="id"/>
+			<completion string="name"/>
+			<completion string="no_result_page"/>
+			<completion string="results"/>
+			<completion string="show_expired"/>
+			<completion string="show_future_entries"/>
+			<completion string="status"/>
+			<completion string="result_page"/>
+			<completion string="weblog"/>			
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:stats.attributes">
+			<completion string="site"/>
+			<completion string="weblog"/>			
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:comment:form.attributes">
+			<completion string="weblog"/>
+			<completion string="preview"/>
+			<completion string="url_title"/>
+			<completion string="entry_id"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.if.attributes">
+			<completion string="allow_comments"/>
+			<completion string="allow_trackbacks"/>
+			<completion string="avatar"/>
+			<completion string="category_request"/>
+			<completion string="count"/>
+			<completion string="forum_topic"/>
+			<completion string="no_results"/>
+			<completion string="not_category_request"/>
+			<completion string="not_forum_topic"/>
+			<completion string="signature_image"/>
+			<completion string="sticky"/>
+			
+			<completion string="previous_page">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into></transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+			
+			<completion string="next_page">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into></transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+		</set>
+		
+		<set name="com.expressionengine.tags.date_heading.attributes">
+			<completion string="display"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.date_footer.attributes">
+			<completion string="display"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.categories.attributes">
+			<completion string="limit"/>
+			<completion string="backspace"/>
+			<completion string="show"/>
+			<completion string="show_group"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:info.attributes">
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:month_links">
+			<completion string="limit"/>
+			<completion string="show_expired"/>
+			<completion string="show_future_entries"/>
+			<completion string="sort"/>
+			<completion string="status"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:calendar.attributes">
+			<completion string="leading_zeroes"/>
+			<completion string="month"/>
+			<completion string="year"/>
+			<completion string="show_future_entries"/>
+			<completion string="start_day"/>
+			<completion string="switch"/>			
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:categories.attributes">
+			<completion string="backspace"/>
+			<completion string="category_group"/>
+			<completion string="class"/>
+			<completion string="disable"/>
+			<completion string="id"/>
+			<completion string="parent_only"/>
+			<completion string="show"/>
+			<completion string="show_empty"/>
+			<completion string="status"/>
+			<completion string="style"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:category_archive.attributes">
+			<completion string="backspace"/>
+			<completion string="class"/>
+			<completion string="disable"/>
+			<completion string="id"/>
+			<completion string="orderby"/>
+			<completion string="show"/>
+			<completion string="show_empty"/>
+			<completion string="show_future_entries"/>
+			<completion string="sort"/>
+			<completion string="status"/>
+			<completion string="style"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:weblog:category_heading.attributes">
+			<completion string="disable"/>
+			<completion string="relaxed_categories"/>
+			<completion string="weblog"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.related_entries.attributes">
+			<completion string="id"/>	
+		</set>
+		
+		<set name="com.expressionengine.tags.reverse_related_entries.attributes">
+			<completion string="weblog"/>
+			<completion string="status"/>
+			<completion string="sort"/>
+			<completion string="orderby"/>
+			<completion string="offset"/>
+			<completion string="limit"/>
+		</set>
+			
+</codesense>
