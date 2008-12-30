@@ -2,18 +2,9 @@
 
 <!--
 	
-	ExpressionEngine Sugar v0.1
+	ExpressionEngine Sugar
 	Created by Anthony Short
-	Latest Releases @ http://anthonyshort.com.au/projects/expressionengine-sugar/
-	
-	TODO
-	Make the if:else the same colour as the if by making the if:else not a self-closing tag
-	exp context sensitive tags
-	Finish adding codesense libraries
-	Add weblog:entries tag pairs (date_heading etc)
-	Add LG plugins to a new codesense library 
-	File Actions / Text Actions
-	Better behaviours for some of the autocompletes (tab stops etc)
+	Latest Releases @ http://anthonyshort.com.au/projects/details/ee-sugar/
 	
 -->
 
