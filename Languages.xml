@@ -4,7 +4,8 @@
 	
 	ExpressionEngine Sugar
 	Created by Anthony Short
-	Latest Releases @ http://anthonyshort.com.au/projects/details/ee-sugar/
+	Version 1.0.1
+	Latest Releases @ http://anthonyshort.com.au/projects/
 	
 -->
 
@@ -16,7 +17,10 @@
 		<root-zone>text.html.ee</root-zone>
 		<name>ExpressionEngine</name>
 		<detectors>
-			<match-content lines="1">{!--exp:template--}</match-content>
+			<match-content>{exp</match-content>
+			<match-content>{embed</match-content>
+			<match-content>{if</match-content>
+			<extension>php</extension> 
 		</detectors>
 		
 	</language>

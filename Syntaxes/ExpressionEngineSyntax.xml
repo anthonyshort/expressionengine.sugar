@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<syntax name="text.html.ee">
+	
+    <zones>
+		<include syntax="text.html.basic"/>
+		<include syntax="sourcecode.php"/>
+		<include collection="ee-comment"/>
+        <include collection="ee-tag"/>
+    </zones>
+
+    <library>
+   
+        <collection name="ee-tag">
+	
+			<zone name="ee.tag">
+		       <starts-with>
+		            <expression>\s*(\{)(exp:[a-z:_]*|date\_heading|date\_footer|categories|category_menu|paginate|related_entries|entry_titles|social_sites|if[^:])</expression>
+					<capture number="0" name="ee.tag.open" />
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+                    <capture number="2" name="ee.entity.name"/>
+					<capture number="3" name="ee.punctuation.definition.end"/>
+		        </starts-with>
+		        <ends-with>
+		            <expression>(/?)(\{\/)(.*?)(\})</expression>
+					<capture number="0" name="ee.tag.close" />
+					<capture number="2" name="ee.punctuation.definition.begin"/>
+                 	<capture number="3" name="ee.entity.name"/>
+					<capture number="4" name="ee.punctuation.definition.end"/>
+		        </ends-with>
+				<subzones>
+					<zone name="ee.punctuation.definition.end">
+						<expression>\}</expression>
+					</zone>
+					<include syntax="text.html.basic"/>
+			        <include collection="ee-tag"/>
+			        <include collection="ee-comment"/>	
+				   	<include collection="ee-tag-attributes" />
+				</subzones>
+		    </zone>
+		
+			<zone name="ee.tag.self-closing">
+				<starts-with>
+	                <expression>(\{)([a-zA-Z0-9_:]+)</expression>
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+	                <capture number="2" name="ee.entity.name"/>
+	            </starts-with>
+                <ends-with>
+                    <expression>(/?)(\})</expression>
+                    <capture number="2" name="ee.punctuation.definition.end"/>
+                </ends-with>
+				<subzones>
+					<include collection="ee-tag-attributes" />
+                </subzones>
+			</zone>
+			
+        </collection>
+
+		<collection name="ee-tag-attributes">
+			<zone name="ee.attribute">
+				<expression>(\w*)\s*(=*)\s*([\"\'])([^"']*?)([\"\'])</expression>
+				<capture number="1" name="ee.attribute-name"/>
+				<capture number="3" name="ee.punctuation.definition.begin"/>
+				<capture number="4" name="ee.attribute-value" />
+				<capture number="5" name="ee.punctuation.definition.end"/>
+			</zone>
+		</collection>
+        
+        <collection name="ee-comment">
+	          <zone name="comment.block.ee">
+                <starts-with>
+                    <expression>{!--</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>--}</expression>
+                </ends-with>
+            	</zone>
+        </collection>
+       
+    </library>
+</syntax>

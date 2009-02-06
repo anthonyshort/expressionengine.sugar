@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+
+	<setting name="comment-multiline-start">
+		<syntax-context>text.html.ee *</syntax-context>
+		<value>{!--</value>
+	</setting>
+	
+	<setting name="comment-multiline-end">
+		<syntax-context>text.html.ee *</syntax-context>
+		<value>--}</value>
+	</setting>
+
+	<setting name="comment-singleline-start">
+		<syntax-context>text.html.ee *</syntax-context>
+		<no-value/>
+	</setting>
+	
+</settings>
+		

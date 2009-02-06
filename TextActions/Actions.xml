@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<action-recipes>
+	
+	<action-alias id="com.anthonyshort.TextActions.ee.CloseTag.Alias" category="hidden">
+	
+		<title>Close Tag (EE)</title>
+		<text-trigger key-equivalent="/">{</text-trigger>
+		<action-identifier>com.macrabbit.TextActions.CloseTag</action-identifier>
+		<syntax-context>ee.tag</syntax-context>
+		
+	</action-alias>
+	
+<!--	<action-alias id="com.macrabbit.TextActions.XML+HTML.CloseTag.Alias" category="hidden">
+	
+		<title>Close Tag (HTML)</title>
+		<text-trigger key-equivalent="/">&lt;</text-trigger>
+		<action-identifier>com.macrabbit.TextActions.CloseTag</action-identifier>
+		<syntax-context>tag.open.other.html</syntax-context>
+		
+	</action-alias>-->
+	
+</action-recipes>

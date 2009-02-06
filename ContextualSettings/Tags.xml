@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+
+	<setting name="tag-close-transform-expression">
+		<syntax-context>ee.tag</syntax-context>
+		<value>{/$0}</value>
+	</setting>
+	
+<!--	<setting name="tag-close-transform-expression">
+		<syntax-context>tag.open.other.html</syntax-context>
+		<value>&lt;/$0></value>
+	</setting>-->
+	
+</settings>
