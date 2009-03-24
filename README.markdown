@@ -8,7 +8,7 @@ Use the download link at the top of the page and rename the folder that download
 	
 ## Theme
 
-You can get the theme I'm developing, which has ExpressionEngine specific highlighting, from 
+You can get the theme I'm developing, which has ExpressionEngine specific highlighting, from http://github.com/anthonyshort/quiet-night.foam/tree/master
 	
 ## Latest Changes
 
