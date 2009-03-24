@@ -47,7 +47,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>[\"|\']?</matched-suffix>
-					<transform-into>(?1::"#{1:template_group/template}" #0)</transform-into>
+					<transform-into>(?1::"${1:template_group/template}" $2)</transform-into>
 				</append-dynamic>
 			</behavior>
 		</set>
