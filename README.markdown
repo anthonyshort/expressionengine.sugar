@@ -4,19 +4,7 @@ This sugar gives you access to the EE template syntax within Espresso, giving yo
 
 ## Download and Install
 
-If you're unsure about GitHub, you can download the latest release from:
-
-http://anthonyshort.com.au/projects/details/ee-sugar/
-
-You can also download the latest release by using the download button above, or run this in terminal:
-
-	cd ~/Library/Application\ Support/Espresso/Sugars 
-	git clone git://github.com/anthonyshort/expressionengine.sugar.git
-	
-You can update the sugar at any time, by running this:
-
-	cd ~/Library/Application\ Support/Espresso/Sugars/expressionengine.sugar/
-	git pull
+Use the download link at the top of the page and rename the folder that downloads to "ExpressionEngine.sugar". Double click the sugar and it's installed. 
 	
 ## Theme
 
@@ -24,37 +12,21 @@ You can get the theme I'm developing, which has ExpressionEngine specific highli
 	
 ## Latest Changes
 
-- Finally got context-sensitive code complete. For example, while you are inside the exp:weblog:entries tag and you type '{' you'll be presented with a list of variables that can be used inside that tag. Simple autocomplete is nothing compared to this. It makes it extremely easy to find out what tags can be used in particular contexts.
+- Updated for Espresso 1.0. Added tag attribute completion. 
+- Now supports embedded php and sql properly. 
 
 ## Known Bugs
 
-- The syntax is broken if a } is placed inside an attribute value. For example {exp:weblog:entries title="{title}" weblog="blog"} - The syntax will be cut short at the {title} closing bracket.
-
+- There are duplicate auto completes in the drop-down menu. This will be fixed soon, but is there as I am getting the sugar ready to do tag-sensitive auto completes. 
 
 ## To Dos
 
-- Behaviours (Autocomplete after codesense) is a bit dodgy. Make these more usable.
-- Snippets
 - Text Actions
 - File Actions
-- Specific Parameter Behaviours **Mostly Done**
-- SAEF Forms
-- Syntax naming on Conditionals *Mostly done* Need to fix up some syntax errors to make it more consistent
-- Comment Preview Tag
-- Autocomplete creates html for the comment submission form
-- All the formatting dates
 - Common Formatting dates in the codesense
 - IP to Nation
 - Referrer Tag
 - RSS Tag
-- Search Tag
-- Stats Tag
 - Trackback Tag
-- Contact Form
-- Tell a friend
-- Photogallery
-- Mailing List
-- Query Tag
-	- SQL sub-syntax mode
 - Simple Commerce
 - Common Plugins
