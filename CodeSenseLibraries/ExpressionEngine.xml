@@ -6,13 +6,16 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 -->
 <codesense version="1.0">
 	
+	<behavior>
+		<append-dynamic>
+			<matched-suffix>(\s*:)|[^:]</matched-suffix>
+			<transform-into>(?1::$1}
+	$2
+{/${completion}}$3)</transform-into>
+		</append-dynamic>
+	</behavior>
+	
 	<set name="com.expressionengine.tags.modules">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0{/#{completion}})</transform-into>
-			</append-dynamic>
-		</behavior>
 		<completion string="exp:weblog:entries"/>
 		<completion string="exp:weblog:categories"/>
 		<completion string="exp:search:simple_form"/>
@@ -27,26 +30,13 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="exp:weblog:calendar"/>
 		<completion string="exp:weblog:categories"/>
 		<completion string="exp:weblog:category_archive"/>
-		
 	</set>
 	
 	<set name="com.expressionengine.tags.pairs">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0{/#{completion}})</transform-into>
-			</append-dynamic>
-		</behavior>
 		<completion string="if"/>
 	</set>
 	
 	<set name="com.expressionengine.pairs.exp:weblog:entries">
-		<behavior>
-			<append-dynamic>
-				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0{/#{completion}})</transform-into>
-			</append-dynamic>
-		</behavior>
 		<completion string="date_heading"/>
 		<completion string="date_footer"/>
 		<completion string="categories"/>
@@ -60,7 +50,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="app_version"/>
@@ -86,15 +76,45 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="total_queries"/>
 		<completion string="username"/>
 		<completion string="webmaster_email"/>
+	</set>
+	
+	<set name="com.expressionengine.variables.global.special">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::="$1" ${2:${3:key}="${4:value}"}}$5)</transform-into>
+			</append-dynamic>
+		</behavior>
 		<completion string="embed"/>
 		<completion string="encode"/>
+		<completion string="entry_date"/>
+		<completion string="expiration_date"/>
+		<completion string="edit_date"/>
+		<completion string="gmt_entry_date"/>
+		<completion string="gmt_edit_date"/>
+		<completion string="recent_comment_date"/>
 	</set>
 
+	<set name="com.expressionengine.variables.exp:weblog:entries.special">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::="$1" ${2:${3:key}="${4:value}"}}$5)</transform-into>
+			</append-dynamic>
+		</behavior>
+		<completion string="entry_date"/>
+		<completion string="expiration_date"/>
+		<completion string="edit_date"/>
+		<completion string="gmt_entry_date"/>
+		<completion string="gmt_edit_date"/>
+		<completion string="recent_comment_date"/>
+	</set>
+	
 	<set name="com.expressionengine.variables.exp:weblog:entries">
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="aol_im"/>
@@ -149,20 +169,13 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="weblog"/>
 		<completion string="weblog_id"/>
 		<completion string="yahoo_im"/>
-		
-		<completion string="entry_date"/>
-		<completion string="expiration_date"/>
-		<completion string="edit_date"/>
-		<completion string="gmt_entry_date"/>
-		<completion string="gmt_edit_date"/>
-		<completion string="recent_comment_date"/>
 	</set>
 	
 	<set name="com.expressionengine.variables.exp:comment:entries">
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="absolute_count"/>		
@@ -209,7 +222,15 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="url_title_path"/>
 		<completion string="weblog_id"/>
 		<completion string="yahoo_im"/>
-		
+</set>
+	
+	<set name="com.expressionengine.variables.exp:comment:entries.special">
+		<behavior>
+			<append-dynamic>
+				<matched-suffix>(\s*:)|[^:]</matched-suffix>
+				<transform-into>(?1::="$1" ${2:${3:key}="${4:value}"}}$5)</transform-into>
+			</append-dynamic>
+		</behavior>
 		<completion string="comment_date"/>
 		<completion string="edit_date"/>
 		<completion string="gmt_comment_date"/>
@@ -219,7 +240,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="name"/>
@@ -237,7 +258,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="auto_path"/>
@@ -250,7 +271,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="blog_description"/>
@@ -264,7 +285,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="month"/>
@@ -279,7 +300,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="author"/>
@@ -311,7 +332,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="category_description"/>
@@ -328,7 +349,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="category_description"/>
@@ -343,7 +364,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<behavior>
 			<append-dynamic>
 				<matched-suffix>(\s*:)|[^:]</matched-suffix>
-				<transform-into>(?1::}#0)</transform-into>
+				<transform-into>(?1::}$0)</transform-into>
 			</append-dynamic>
 		</behavior>
 		<completion string="category_description"/>

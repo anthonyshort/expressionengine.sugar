@@ -7,9 +7,9 @@
 		<value>{/$0}</value>
 	</setting>
 	
-<!--	<setting name="tag-close-transform-expression">
-		<syntax-context>tag.open.other.html</syntax-context>
+	<setting name="tag-close-transform-expression">
+		<syntax-context>html, html *, xml, xml *</syntax-context>
 		<value>&lt;/$0></value>
-	</setting>-->
+	</setting>
 	
 </settings>

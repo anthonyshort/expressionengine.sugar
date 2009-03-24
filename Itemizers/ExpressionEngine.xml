@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itemizer>
 	
-	<recipe name="ee.tag">
-		<class>ESXHTMLItem</class>
+	<recipe name="built-in.comment">
+		<class>ESCommentItem</class>
+		<selector>ee.comment</selector>
+	</recipe>
+
+	<recipe name="ee.tag.collection">
 		<start-selector>ee.tag.open:has-child(name:capture(name))</start-selector>
 		<end-selector>ee.tag.close:has-child(name[text == $name.text])</end-selector>
 		<subrecipes>
 			<include-root-recipes/>
 		</subrecipes>
+		<class>ESXHTMLItem</class>
 	</recipe>
-		
+	
+	<recipe name="ee.tag.conditional.collection">
+		<start-selector>ee.tag.open.conditional:has-child(name:capture(name))</start-selector>
+		<end-selector>ee.tag.close.conditional:has-child(name[text == $name.text])</end-selector>
+		<subrecipes>
+			<include-root-recipes/>
+		</subrecipes>
+		<class>ESXHTMLItem</class>
+	</recipe>
+	
+	
 	<recipe name="ee.self-closing-tag">
-		<selector>ee.tag.self-closing:has-child(name:capture(name))</selector>
+		<selector>ee.tag.open:has-child(name:capture(name), empty-element-marker), ee.tag.self-closing:has-child(name:capture(name)), ee.tag.open:has-child(name:capture(name), self-closing)</selector>
 		<class>ESXHTMLItem</class>
 	</recipe>
 

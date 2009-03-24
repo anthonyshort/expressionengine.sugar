@@ -10,7 +10,27 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 		<selector>text.html.ee, ee.tag.open, ee.tag.self-closing</selector>
 		<completions>com.expressionengine.variables.global</completions>
 		<completions>com.expressionengine.tags.pairs</completions>
-		<completions>com.expressionengine.tags.modules</completions>		
+		<completions>com.expressionengine.tags.modules</completions>
+		
+		<!-- Temporary. I'm manually selecting the completions -->
+		<completions>com.expressionengine.variables.exp:weblog:category_heading</completions>
+		<completions>com.expressionengine.variables.exp:weblog:category_archive</completions>
+		<completions>com.expressionengine.variables.exp:weblog:categories</completions>
+		<completions>com.expressionengine.variables.exp:weblog:calendar</completions>
+		<completions>com.expressionengine.variables.exp:weblog:month_links</completions>
+		<completions>com.expressionengine.variables.exp:weblog:info</completions>
+		<completions>com.expressionengine.variables.paginate</completions>
+		<completions>com.expressionengine.variables.exp:comment:form</completions>
+		<completions>com.expressionengine.variables.exp:comment:entries.special</completions>
+		<completions>com.expressionengine.variables.exp:comment:entries</completions>
+		<completions>com.expressionengine.variables.exp:weblog:entries</completions>
+		<completions>com.expressionengine.variables.exp:weblog:entries.special</completions>
+		<completions>com.expressionengine.variables.global.special</completions>
+		<completions>com.expressionengine.variables.global</completions>
+		<completions>com.expressionengine.tags.modules</completions>
+		
+		<completions>com.expressionengine.pairs</completions>
+				
 		<complete-match capture="2">(\{)([a-zA-Z0-9-:]*)</complete-match>
 	</provider>
 	
@@ -30,11 +50,11 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 	  </provider>
 	
 	<!-- Context Specific Variables -->
-	<provider>
+	<!-- <provider>
 		<selector>ee.tag:has-child(open:has-child(name:capture(name))), ee.tag:has-child(open:has-child(name:capture(name))) > ee.tag.self-closing</selector>
 		<completions>com.expressionengine.variables.${name}</completions>
 		<completions>com.expressionengine.pairs.${name}</completions>
 		<complete-match capture="2">(\{)([a-zA-Z0-9]*)</complete-match>
-	</provider>
+	</provider> -->
 	
 </codesense>
