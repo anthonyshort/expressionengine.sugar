@@ -20,7 +20,6 @@
 			<match-content>{exp</match-content>
 			<match-content>{embed</match-content>
 			<match-content>{if</match-content>
-			<extension>php</extension> 
 		</detectors>
 		
 	</language>
