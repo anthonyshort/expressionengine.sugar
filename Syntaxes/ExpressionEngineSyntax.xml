@@ -78,7 +78,7 @@
 			
 			<zone name="ee.tag.open">
 		       <starts-with>
-				<expression>(\{)(exp:[a-zA-Z0-9:_]+|categories|date_heading|date_footer|entry_titles)</expression>
+				<expression>(\{)(exp:[a-zA-Z0-9:_]+|categories|date\_heading|date\_footer|entry_titles)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
                     <capture number="2" name="ee.entity.name"/>
 		        </starts-with>
@@ -93,7 +93,7 @@
 			
 			<zone name="ee.tag.close">
 		        <starts-with>
-		            <expression>({/)([a-zA-Z0-9:]+)</expression>
+		            <expression>({/)([a-zA-Z0-9:_]+)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
                  	<capture number="2" name="ee.entity.name"/>
 		        </starts-with>
