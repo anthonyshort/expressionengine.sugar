@@ -426,4 +426,52 @@ Sent at: {current_time format="%Y %m %d"}</textarea></p>
 		<syntax-context>*</syntax-context>
 	</snippet>
 
+	<snippet id="com.macrabbit.TextActions.EE.lg-better-meta" category="actions.text.EE/tools.Templates">
+		<title>LG Better Meta - Site Meta</title>
+		<text><![CDATA[{exp:lg_better_meta_pi:template
+		    entry_id="{embed:entry_id}"
+		    weblog_id="{embed:weblog_id}"
+		    url_title="{embed:url_title}"
+		    title="{embed:title}"
+		    title_suffix="{embed:title_suffix}"
+		    title_prefix="{embed:title_prefix}"
+		    hide_site_title="{embed:hide_site_title}"
+		    description="{embed:description}"
+		    keywords="{embed:keywords}"
+		    author="{embed:author}"
+		    publisher="{embed:publisher}"
+		    rights="{embed:rights}"
+		    date_created="{embed:date_created}"
+		    date_modified="{embed:date_modified}"
+		    date_valid="{embed:date_valid}"
+		    identifier="{embed:identifier}"
+		    robots_index="{embed:robots_index}"
+		    robots_follow="{embed:robots_follow}"
+		    robots_archive="{embed:robots_archive}"
+		  }]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.lg-social-bookmarks" category="actions.text.EE/tools.Templates">
+		<title>LG Social Bookmarks</title>
+		<text><![CDATA[{exp:weblog:entries weblog="${1:news}"}
+		  {lg_social_bookmarks title="{title}" permalink="{path=${2:template_group}/${3:comments}}"}
+		    <p>Enjoy this post? Share it with others.</p>
+		    <ul>
+		      {social_sites}
+		        <li>
+		          <a href="{social_site_url}" title="Bookmark on: {social_site_name}">
+		            <img src="/themes/cp_global_images/lg_social_bookmarks/favicons/{social_site_img_url}" alt="{social_site_name} Favicon" />
+		            <span>Bookmark on {social_site_name}</span>
+		          </a>
+		        </li>
+		        {/social_sites}
+		    </ul>
+		  {/lg_social_bookmarks}
+		{/exp:weblog:entries}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	
+	
 </action-recipes>

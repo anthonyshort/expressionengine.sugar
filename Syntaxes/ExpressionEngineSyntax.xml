@@ -56,6 +56,38 @@
                 </subzones>
 			</zone>
 			
+			<!-- For self-closing tags which don't fit into the standard format -->
+			<zone name="ee.tag.self-closing.special">
+				<starts-with>
+	                <expression>(\{)(exp\:lg\_better\_meta\_pi\:template)</expression>
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+	                <capture number="2" name="ee.entity.name"/>
+	            </starts-with>
+                <ends-with>
+                    <expression>(/?)(\})</expression>
+                    <capture number="2" name="ee.punctuation.definition.end"/>
+                </ends-with>
+				<subzones>
+					<include collection="ee-tag-attributes" />
+                </subzones>
+			</zone>
+			
+			<!-- For tag pairs which are included with addons -->
+			<zone name="ee.tag.open.special">
+		       <starts-with>
+				<expression>(\{)(social_sites)</expression>
+					<capture number="1" name="ee.punctuation.definition.begin"/>
+                    <capture number="2" name="ee.entity.name"/>
+		        </starts-with>
+				<ends-with>
+					<expression>(/?)(})</expression>
+					<capture number="2" name="ee.punctuation.definition.end"/>
+				</ends-with>
+				<subzones>
+					<include collection="ee-tag-attributes" />
+				</subzones>
+			</zone>
+			
 			<zone name="ee.tag.open">
 		       <starts-with>
 				<expression>(\{)(exp:[a-zA-Z0-9:_]+|categories|date\_heading|date\_footer|entry_titles|categories|paginate)</expression>

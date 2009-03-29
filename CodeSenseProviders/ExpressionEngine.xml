@@ -28,7 +28,10 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 		<completions>com.expressionengine.variables.global.special</completions>
 		<completions>com.expressionengine.variables.global</completions>
 		<completions>com.expressionengine.tags.modules</completions>
+		
 		<completions>com.expressionengine.tags.addons</completions>
+		<completions>com.expressionengine.variables.addons</completions>
+		<completions>com.expressionengine.pairs.addons</completions>
 		
 		<completions>com.expressionengine.pairs</completions>
 				
