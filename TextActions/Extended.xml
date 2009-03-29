@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<action-recipes>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.entries" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:entries</title>
+		<text><![CDATA[{exp:weblog:entries
+	weblog="${1:value}"
+	disable="${2:custom_fields|categories|category_fields|member_data|pagination|trackbacks}"
+	dynamic="${3:off}"
+	require_entry="${4:yes}"
+}
+{if no_results}{redirect="${5:404}"}{/if}
+$6
+{/exp:weblog:entries}]]></text>
+		<text-trigger>entries</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.entries.paginate" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Pagination Links</title>
+		<text><![CDATA[{paginate}<div>Page {current_page} of {total_pages} pages {pagination_links}</div>{/paginate}]]></text>
+		<text-trigger>page</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.entries.categories" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Categories</title>
+		<text><![CDATA[{categories$1}{category_name}{/categories}]]></text>
+		<text-trigger>cats</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.entries.related" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Related Entries</title>
+		<text><![CDATA[{related_entries id="${1:field_name}"}{if no_related_entries}{/if}{/related_entries}]]></text>
+		<text-trigger>rel</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.entries.revrelated" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Reverse Related Entries</title>
+		<text><![CDATA[{reverse_related_entries weblog="${1:weblog_short_name}"}{if no_related_entries}{/if}{/reverse_related_entries}]]></text>
+		<text-trigger>rev</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.next" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Next Links</title>
+		<text><![CDATA[{exp:weblog:next_entry weblog="${1:weblog1}"}
+		${2:<p>Next entry: <a href="{path="${3:weblog}/${4:comments}"}">{title}</a></p>}
+		{/exp:weblog:next_entry}]]></text>
+		<text-trigger>next</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.prev" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Previous Links</title>
+		<text><![CDATA[{exp:weblog:prev_entry weblog="${1:weblog1}"}
+		${2:<p>Previous entry: <a href="{path="${3:weblog}/${4:comments}"}">{title}</a></p>}
+		{/exp:weblog:prev_entry}]]></text>
+		<text-trigger>prev</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.categories" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:categories</title>
+		<text><![CDATA[{exp:weblog:categories weblog="${1:weblog1}" disable="category_fields" $2}{/exp:weblog:categories}]]></text>
+		<text-trigger>cat</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.category_archive" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:category_archive</title>
+		<text><![CDATA[{exp:weblog:category_archive weblog="{$1:weblog1}" style="linear" $2}
+
+		{categories}
+		<h3>{category_name}</h3>
+		{if category_description}<p>{category_description}</p>{/if}
+		{/categories}
+
+		{entry_titles}
+		<a href="{path=SITE_INDEX}">{title}</a><br />
+		{/entry_titles}
+
+		{/exp:weblog:category_archive}]]></text>
+		<text-trigger>catarch</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.category_heading" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:category_heading</title>
+		<text><![CDATA[{exp:weblog:category_heading weblog="${1:weblog1}"}
+		<h1>{category_name}</h1>
+
+		{if category_description}
+		<p>{category_description}</p>
+		{/if}
+		{/exp:weblog:category_heading}]]></text>
+		<text-trigger>cathead</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.month_links" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:month_links</title>
+		<text><![CDATA[{exp:weblog:month_links weblog="${1:weblog1}"$2}{/exp:weblog:month_links}]]></text>
+		<text-trigger>month_links</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.entry_form" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:entry_form</title>
+		<text><![CDATA[{exp:weblog:entry_form weblog="${1:weblog1}" return="${2:site}/${3:index}"$4}
+
+		{/exp:weblog:entry_form}]]></text>
+		<text-trigger>entry_form</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.info" category="actions.text.EE/tools.Snippets.weblog">
+		<title>exp:weblog:info</title>
+		<text><![CDATA[{exp:weblog:info weblog="${1:weblog1}"}
+
+		{/exp:weblog:info}]]></text>
+		<text-trigger>info</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.date_heading" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Date Heading</title>
+		<text><![CDATA[{date_heading display="${1:daily}"}
+		<h1>{entry_date format="%Y %m %d"}</h1>
+		{/date_heading}]]></text>
+		<text-trigger>datehead</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.weblog.date_footer" category="actions.text.EE/tools.Snippets.weblog">
+		<title>Date Footer</title>
+		<text><![CDATA[{date_footer display="${1:daily}"}
+		<h1>{entry_date format="%Y %m %d"}</h1>
+		{/date_footer}]]></text>
+		<text-trigger>datefoot</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.comment.entries" category="actions.text.EE/tools.Snippets.comment">
+		<title>exp:comment:entries</title>
+		<text><![CDATA[{exp:comment:entries weblog="${1:weblog1}"$2}
+
+		{/exp:comment:entries}]]></text>
+		<text-trigger>commententries</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.comment.preview" category="actions.text.EE/tools.Snippets.comment">
+		<title>exp:comment:preview</title>
+		<text><![CDATA[{exp:comment:preview}{/exp:comment:preview}]]></text>
+		<text-trigger>commentpreview</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.comment.form" category="actions.text.EE/tools.Snippets.comment">
+		<title>exp:comment:form</title>
+		<text><![CDATA[{exp:comment:form weblog="${1:weblog1}" ${2:preview="${3:weblog}/${4:preview}"}}$5
+
+		{/exp:comment:form}]]></text>
+		<text-trigger>commentform</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.comment.captcha" category="actions.text.EE/tools.Snippets.comment">
+		<title>Captcha</title>
+		<text><![CDATA[{if captcha}
+		<p>Please enter the word you see in the image below:</p>
+		<p>{captcha}<br />
+		<input type="text" name="captcha" value="{captcha_word}" maxlength="20" /></p>
+		{/if}]]></text>
+		<text-trigger>captcha</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.email.contact_form" category="actions.text.EE/tools.Snippets.email">
+		<title>Contact Form</title>
+		<text><![CDATA[{exp:email:contact_form$1}
+
+		{/exp:email:contact_form}]]></text>
+		<text-trigger>contact</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.email.friend" category="actions.text.EE/tools.Snippets.email">
+		<title>Tell-a-friend Form</title>
+		<text><![CDATA[{exp:email:tell_a_friend$1}
+
+		{/exp:email:tell_a_friend}]]></text>
+		<text-trigger>friend</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.member.custom_data" category="actions.text.EE/tools.Snippets.member">
+		<title>Custom Profile Data</title>
+		<text><![CDATA[{exp:member:custom_profile_data}$1{/exp:member:custom_profile_data}]]></text>
+		<text-trigger>membercustom</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.member.ignore_list" category="actions.text.EE/tools.Snippets.member">
+		<title>Ignore List</title>
+		<text><![CDATA[{exp:member:ignore_list}$1{/exp:member:ignore_list}]]></text>
+		<text-trigger>memberignore</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.member.login" category="actions.text.EE/tools.Snippets.member">
+		<title>Login Form</title>
+		<text><![CDATA[{exp:member:login_form return="${1:{segment_1}}/${2:{segment_2}}" name="${3:login_form}"}
+
+		<p><label>Username</label><br />
+		<input type="text" name="username" value="" maxlength="32" class="input" size="25" /></p>
+
+		<p><label>Password</label><br />
+		<input type="password" name="password" value="" maxlength="32" class="input" size="25" /></p>
+
+		{if auto_login}
+		<p><input class='checkbox' type='checkbox' name='auto_login' value='1' /> Auto-login on future visits</p>
+		{/if}
+
+		<p><input class='checkbox' type='checkbox' name='anon' value='1' checked='checked' /> Show my name in the online users list</p>
+
+		<p><input type="submit" name="submit" value="Submit" /></p>
+
+		<p><a href="{path=member/forgot_password}">Forgot your password?</a></p>
+
+		{/exp:member:login_form}]]></text>
+		<text-trigger>memberlogin</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.emoticons" category="actions.text.EE/tools.Snippets.misc">
+		<title>Emoticons</title>
+		<text><![CDATA[<table id="" class="">
+			{exp:emoticon columns="4"}
+			<tr class="row">
+				<td class="red"><div>{smiley}</div></td>
+			</tr>
+			{/exp:emoticon}
+		</table>]]></text>
+		<text-trigger>emoticons</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.iptonation.worldflags" category="actions.text.EE/tools.Snippets.misc">
+		<title>World Flags</title>
+		<text><![CDATA[{exp:ip_to_nation:world_flags image_url="/images/world_flags/" type="text"}
+		{ip_address}
+		{/exp:ip_to_nation:world_flags}]]></text>
+		<text-trigger>flags</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.anthonyshort.TextActions.EE.mailinglist" category="actions.text.EE/tools.Snippets.misc">
+		<title>Mailing List</title>
+		<text><![CDATA[{exp:mailinglist:form list="${1:default}"}$2{/exp:mailinglist:form}]]></text>
+		<text-trigger>mail</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.query" category="actions.text.EE/tools.Snippets.misc">
+		<title>Query</title>
+		<text><![CDATA[{exp:query sql="$1"}$2{/exp:query}]]></text>
+		<text-trigger>query</text-trigger>
+		<syntax-context>ee, ee *, html</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.referrer" category="actions.text.EE/tools.Snippets.misc">
+		<title>Referrer List</title>
+		<text><![CDATA[<table parameters>
+			<tr>
+				<th>Date</th>
+				<th>From</th>
+				<th>IP Address</th>
+				<th>To</th>
+			</tr>
+
+			{exp:referrer limit="50" popup="yes"}
+			<tr>
+				<td>{ref_date format="%m/%d/%Y"}</td>
+				<td>{ref_from}</td>
+				<td>{ref_ip}</td>
+				<td>{ref_to}</td>
+			</tr>
+			{/exp:referrer}
+		</table>
+		]]></text>
+		<text-trigger>referrer</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>	
+	
+	<snippet id="com.macrabbit.TextActions.EE.stats" category="actions.text.EE/tools.Snippets.misc">
+		<title>Stats</title>
+		<text><![CDATA[{exp:stats weblog="${1:weblog1}"}{/exp:stats}]]></text>
+		<text-trigger>stats</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.trackbacks" category="actions.text.EE/tools.Snippets.misc">
+		<title>Trackbacks</title>
+		<text><![CDATA[{exp:trackback:entries}
+		<h3>{title}</h3>
+		<p>{content}</p>
+		<div class="">Tracked on: <a href="{trackback_url}">{weblog_name}</a> ({trackback_ip}) at {trackback_date format="%Y %m %d %H:%i:%s"}</div>
+		{/exp:trackback:entries}]]></text>
+		<text-trigger>trackbacks</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.pings" category="actions.text.EE/tools.Snippets.misc">
+		<title>Pings</title>
+		<text><![CDATA[{exp:updated_sites:pings which="default" orderby="title" limit="20"}
+		<p><a href="{ping_site_url}">{ping_site_name}</a></p>
+		{/exp:updated_sites:pings}]]></text>
+		<text-trigger>pings</text-trigger>
+		<syntax-context>ee, ee *</syntax-context>
+	</snippet>
+	
+</action-recipes>

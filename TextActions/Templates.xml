@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<action-recipes>
+
+	<snippet id="com.macrabbit.TextActions.EE.Doctype.html4strict" category="actions.text.EE/tools.Templates">
+		<title>Advanced Search Form</title>
+		<text><![CDATA[{exp:search:advanced_form result_page="search/results"}
+
+<table cellpadding='4' cellspacing='6' border='0' width='100%'>
+<tr>
+<td>
+
+<fieldset class="fieldset">
+<legend>{lang:search_by_keyword}</legend>
+
+<input type="text" class="input" maxlength="100" size="40" name="keywords" style="width:100%;" />
+
+<div class="default">
+<select name="search_in">
+<option value="titles" selected="selected">{lang:search_in_titles}</option>
+<option value="entries" selected="selected">{lang:search_in_entries}</option>
+<option value="everywhere" >{lang:search_everywhere}</option>
+</select>
+</div>
+
+<div class="default">
+<select name="where">
+<option value="exact" selected="selected">{lang:exact_phrase_match}</option>
+<option value="any">{lang:search_any_words}</option>
+<option value="all" >{lang:search_all_words}</option>
+<option value="word" >{lang:search_exact_word}</option>
+</select>
+</div>
+
+</fieldset>
+
+</td><td>
+
+<fieldset class="fieldset">
+<legend>{lang:search_by_member_name}</legend>
+
+<input type="text" class="input" maxlength="100" size="40" name="member_name" style="width:100%;" />
+<div class="default"><input type="checkbox" class="checkbox" name="exact_match" value="y" /> {lang:exact_name_match}</div>
+
+</fieldset>
+
+</td>
+</tr>
+</table>
+
+<table cellpadding='4' cellspacing='6' border='0' width='100%'> 
+<tr>
+<td valign="top" width="50%">
+
+<table cellpadding='0' cellspacing='0' border='0'>
+<tr>
+<td valign="top">
+
+<div class="defaultBold">{lang:weblogs}</div>
+
+<select id="weblog_id" name='weblog_id[]' class='multiselect' size='12' multiple='multiple' onchange='changemenu(this.selectedIndex);'>
+{weblog_names}
+</select>
+
+</td>
+<td valign="top" width="16">&nbsp;</td>
+<td valign="top">
+
+<div class="defaultBold">{lang:categories}</div>
+
+<select name='cat_id[]' size='12' class='multiselect' multiple='multiple'>
+<option value='all' selected="selected">{lang:any_category}</option>
+</select>
+
+</td>
+</tr>
+</table>
+
+</td>
+<td valign="top" width="50%">
+
+<fieldset class="fieldset">
+<legend>{lang:search_entries_from}</legend>
+
+<select name="date" style="width:150px">
+<option value="0" selected="selected">{lang:any_date}</option>
+<option value="1" >{lang:today_and}</option>
+<option value="7" >{lang:this_week_and}</option>
+<option value="30" >{lang:one_month_ago_and}</option>
+<option value="90" >{lang:three_months_ago_and}</option>
+<option value="180" >{lang:six_months_ago_and}</option>
+<option value="365" >{lang:one_year_ago_and}</option>
+</select>
+
+<div class="default">
+<input type='radio' name='date_order' value='newer' class='radio' checked="checked" />&nbsp;{lang:newer}
+<input type='radio' name='date_order' value='older' class='radio' />&nbsp;{lang:older}
+</div>
+
+</fieldset>
+
+<div class="default"><br /></div>
+
+<fieldset class="fieldset">
+<legend>{lang:sort_results_by}</legend>
+
+<select name="orderby">
+<option value="date" >{lang:date}</option>
+<option value="title" >{lang:title}</option>
+<option value="most_comments" >{lang:most_comments}</option>
+<option value="recent_comment" >{lang:recent_comment}</option>
+</select>
+
+<div class="default">
+<input type='radio' name='sort_order' class="radio" value='desc' checked="checked" /> {lang:descending}
+<input type='radio' name='sort_order' class="radio" value='asc' /> {lang:ascending}
+</div>
+
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+<div class='searchSubmit'>
+<input type='submit' value='Search' class='submit' />
+</div>
+
+{/exp:search:advanced_form}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.comment-entries" category="actions.text.EE/tools.Templates">
+		<title>Comment Entries</title>
+		<text><![CDATA[{exp:comment:entries sort="asc" limit="20"}
+
+{comment}
+
+<p>By {name} on {comment_date format="%Y %m %d"}</p>
+
+{/exp:comment:entries}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.contact-form" category="actions.text.EE/tools.Templates">
+		<title>Contact Form</title>
+		<text><![CDATA[{exp:email:contact_form user_recipients="false" recipients="admin@example.com" charset="utf-8"}
+
+<h2>Support Form</h2>
+
+<p><label for="from">Your Email:</label><br />
+<input type="text" id="from" name="from" size="40" maxlength="35" value="{member_email}" /></p>
+
+<p><label for="subject">Subject:</label><br />
+<input type="text" id="subject" name="subject" size="40" value="Contact Form" /></p>
+
+<p><label for="message">Message:</label><br />
+<textarea id="message" name="message" rows="18" cols="40">Support Email from: {member_name}
+Sent at: {current_time format="%Y %m %d"}</textarea></p>
+
+<p><input name="submit" type='submit' value='Submit Form' /></p>
+
+{/exp:email:contact_form}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.login-form" category="actions.text.EE/tools.Templates">
+		<title>Login Form</title>
+		<text><![CDATA[{exp:member:login_form return="site/index"}
+
+<p><label>Username</label><br />
+<input type="text" name="username" value="" maxlength="32" class="input" size="25" /></p>
+
+<p><label>Password</label><br />
+<input type="password" name="password" value="" maxlength="32" class="input" size="25" /></p>
+
+{if auto_login}
+<p><input class='checkbox' type='checkbox' name='auto_login' value='1' /> Auto-login on future visits</p>
+{/if}
+
+<p><input class='checkbox' type='checkbox' name='anon' value='1' checked='checked' /> Show my name in the online users list</p>
+
+<p><input type="submit" name="submit" value="Submit" /></p>
+
+<p><a href="{path=''member/forgot_password''}">Forgot your password?</a></p>
+
+{/exp:member:login_form}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.logout-form" category="actions.text.EE/tools.Templates">
+		<title>Logout Link</title>
+		<text><![CDATA[<a href="{path=''LOGOUT''}">Log out</a>]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+
+	<snippet id="com.macrabbit.TextActions.EE.mailing-list-form" category="actions.text.EE/tools.Templates">
+		<title>Mailing List Form</title>
+		<text><![CDATA[{exp:mailinglist:form list="default"}
+
+<p>Join our Mailing List</p>
+
+<p><input type="text" name="email" value="{email}" /></p>
+
+<p><input type="submit" value="submit" /></p>
+
+{/exp:mailinglist:form}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.SAEF-form" category="actions.text.EE/tools.Templates">
+		<title>SAEF Form</title>
+		<text><![CDATA[{exp:weblog:entry_form weblog="default_site" return="site/index" preview="site/entry"}
+
+{preview}
+<h1>{title}</h1>
+
+{display_custom_fields}
+
+{/preview}
+
+
+<table>
+<tr>
+<td>
+
+<p>Title<br />
+<input type="text" name="title" id="title" value="{title}" size="50" maxlength="100" onkeyup="liveUrlTitle();" /></p>
+
+<p>URL Title<br />
+<input type="text" name="url_title" id='url_title' value="{url_title}" maxlength="75" size="50" /></p>
+
+{formatting_buttons}
+
+<p><a href="{upload_url}" onclick="window.open(this.href, '_blank', 'width=400,height=600');return false;" onkeypress="this.onclick()">File Upload</a>
+
+<a href="{smileys_url}" onclick="window.open(this.href, '_blank', 'width=600,height=440');return false;" onkeypress="this.onclick()">Smileys</a></p>
+
+{custom_fields}
+{if required}* {/if}{field_label}<br />
+{field_instructions} 
+{if textarea}
+<textarea id="{field_name}" name="{field_name}" dir="{text_direction}" cols="50" rows="{rows}" onclick="setFieldName(this.name)">{field_data}</textarea>
+{/if}
+
+{if textinput}
+<input type="text" dir="{text_direction}" id="{field_name}" name="{field_name}" value="{field_data}" maxlength="{maxlength}" size="50" onclick="setFieldName(this.name)" />
+{/if}
+
+{if pulldown}
+ <select id="{field_name}" name="{field_name}">
+{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}
+</select>
+{/if}
+
+{if date}
+<input type="text" id="{field_name}" name="{field_name}" value="{field_data}" maxlength="{maxlength}" size="50" onclick="setFieldName(this.name)" />
+{/if}
+
+{if relationship}
+<select id="{field_name}" name="{field_name}">
+{options}<option value="{option_value}"{selected}>{option_name}</option>{/options}
+</select>
+{/if}
+{/custom_fields} 
+
+<p>Trackback URLs<br />
+<textarea name="trackback_urls" cols="50" rows="5">{trackback_urls}</textarea> </p>
+
+</td>
+<td valign="top">
+
+<input type="submit" name="submit" value="Submit" />
+<input type="submit" name="preview" value="Preview" />
+
+{status_menu}
+<p>Status<br />
+<select name="status">
+{select_options}
+</select>
+</p>
+{/status_menu}
+
+<p>Date <br />
+<input type="text" name="entry_date" value="{entry_date}" maxlength="23" size="25" /></p>
+
+<p>Expiration Date <br />
+<input type="text" name="expiration_date" value="{expiration_date}" maxlength="23" size="25" /></p>
+
+<p>Comment Expiration Date <br />
+<input type="text" name="comment_expiration_date" value="{comment_expiration_date}" maxlength="23" size="25" /></p>
+
+<p><input type="checkbox" name="sticky" value="y" {sticky} /> Make Entry Sticky</p>
+<p><input type="checkbox" name="allow_comments" value="y" {allow_comments} /> Allow Comments</p>
+<p><input type="checkbox" name="allow_trackbacks" value="y" {allow_trackbacks} /> Allow Trackbacks</p>
+<p><input type='checkbox' name='dst_enabled' value='y' {dst_enabled} />DST Active on Date of Entry</p>
+
+{ping_servers}
+<p>Ping Servers<br />
+{ping_row}
+<input type="checkbox" name="ping[]" value="{ping_value}" {ping_checked} /> {ping_server_name}<br />
+{/ping_row}
+</p>
+{/ping_servers}
+
+{category_menu}
+<p>Categories<br />
+<select name="category[]" size="4" multiple="multiple">
+{select_options}
+</select>
+</p>
+{/category_menu}
+
+</td>
+</tr>
+</table>
+
+{/exp:weblog:entry_form}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.simple-search-form" category="actions.text.EE/tools.Templates">
+		<title>Simple Search Form</title>
+		<text><![CDATA[{exp:search:simple_form weblog="news"}
+
+<p><label for="keywords">Search:</label><br />
+<input type="text" name="keywords" id="keywords" value="" size="18" maxlength="100" /></p>
+
+<p><a href="{path=''search/index''}">Advanced Search</a></p>
+
+<p><input type="submit" value="submit" class="submit" /></p>
+
+{/exp:search:simple_form}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.rss.teaser" category="actions.text.EE/tools.Templates">
+		<title>RSS Feed (Teaser)</title>
+		<text><![CDATA[{assign_variable:master_weblog_name="articles"}
+		{exp:rss:feed weblog="{master_weblog_name}"}
+		<?xml version="1.0" encoding="{encoding}"?>
+		<rss version="2.0" 
+			xmlns:dc="http://purl.org/dc/elements/1.1/" 
+			xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+			xmlns:admin="http://webns.net/mvcb/" 
+			xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+			xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+			xmlns:atom="http://www.w3.org/2005/Atom">
+		<channel>
+		{exp:weblog:entries weblog="{master_weblog_name}" limit="10" rdf="off" dynamic_start="on" disable="member_data|trackbacks|pagination"}
+			<title>{exp:xml_encode}{site_name}{/exp:xml_encode}</title>
+			<link>{site_url}{exp:xml_encode}?utm_source=Teasers&utm_medium=RSS&utm_content=BlogName&utm_campaign=blog{/exp:xml_encode}</link>
+			<description>Online repository for Emily P. Lewis' thoughts on web design, web standards, semantics and whatever else.</description>
+			<dc:language>{weblog_language}</dc:language>
+			<dc:rights>Copyright {gmt_date format="%Y"}</dc:rights>
+			<dc:date>{gmt_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+			<admin:generatorAgent rdf:resource="http://expressionengine.com/" />
+			<atom:link href="{site_url}/feeds/rss_intros" rel="self" type="application/rss+xml" />
+			<item>
+			<title>{exp:xml_encode}{title}{/exp:xml_encode}</title>
+			<dc:creator>{author}</dc:creator>
+			<link>{title_permalink=articles/index}{exp:xml_encode}?utm_source=Teasers&utm_medium=RSS&utm_content=ArticleTitle&utm_campaign={url_title}{/exp:xml_encode}</link>
+			<guid>{title_permalink=articles/index}{exp:xml_encode}#When:{gmt_entry_date format="%H:%i:%sZ"}?utm_source=Teasers&utm_medium=RSS&utm_content=ArticleTitle&utm_campaign={url_title}{/exp:xml_encode}</guid>
+			<description>
+			&lt;![CDATA[
+			{intro}
+			{if remaining}<p><a href="{title_permalink=articles/index}{exp:xml_encode}?utm_source=Teasers&utm_medium=RSS&utm_content=ContinueReading&utm_campaign={url_title}{/exp:xml_encode}">Continue Reading</a></p>{/if}
+			<hr />
+			<p>Published in: {categories}<a href="{site_url}/articles/category/{category_name}{category_url_title}/{exp:xml_encode}?utm_source=Teasers&utm_medium=RSS&utm_content={category_name}&utm_campaign={url_title}{/exp:xml_encode}">{category_name}</a>{/categories}</p>
+			<p>Tagged as: {exp:tag:tags entry_id="{entry_id}" type="weblog" orderby="alpha" sort="asc" backspace="2"}<a href="{site_url}/articles/tag/{websafe_tag}/{exp:xml_encode}?utm_source=Teasers&utm_medium=RSS&utm_content={websafe_tag}&utm_campaign={url_title}{/exp:xml_encode}">{tag}</a>, {/exp:tag:tags}</p>
+			]]&rt;
+			</description>
+			<dc:subject>{exp:xml_encode}{categories}{category_name}{/categories}{/exp:xml_encode}</dc:subject>
+			<dc:date>{gmt_entry_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+			</item>
+			{/exp:weblog:entries}
+		</channel>
+		</rss>
+		{/exp:rss:feed}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+	
+	<snippet id="com.macrabbit.TextActions.EE.rss.full" category="actions.text.EE/tools.Templates">
+		<title>RSS Feed (Full)</title>
+		<text><![CDATA[{assign_variable:master_weblog_name="articles"}
+		{exp:rss:feed weblog="{master_weblog_name}"}
+		<?xml version="1.0" encoding="{encoding}"?>
+		<rss version="2.0" 
+		xmlns:dc="http://purl.org/dc/elements/1.1/" 
+		xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+		xmlns:admin="http://webns.net/mvcb/" 
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+		xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+		xmlns:atom="http://www.w3.org/2005/Atom">
+		<channel>
+		{exp:weblog:entries weblog="{master_weblog_name}" limit="10" rdf="off" dynamic_start="on" disable="member_data|trackbacks|pagination"}
+		<title>{exp:xml_encode}{site_name}{/exp:xml_encode}</title>
+		<link>{site_url}{exp:xml_encode}?utm_source=Articles&utm_medium=RSS&utm_content=BlogName&utm_campaign=blog{/exp:xml_encode}</link>
+		<description>Online repository for Emily P. Lewis' thoughts on web design, web standards, semantics and whatever else.</description>
+		<dc:language>{weblog_language}</dc:language>
+		<dc:rights>Copyright {gmt_date format="%Y"}</dc:rights>
+		<dc:date>{gmt_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+		<admin:generatorAgent rdf:resource="http://expressionengine.com/" />
+		<atom:link href="{site_url}/feeds/rss_articles" rel="self" type="application/rss+xml" />
+		<item>
+		<title>{exp:xml_encode}{title}{/exp:xml_encode}</title>
+		<dc:creator>{author}</dc:creator>
+		<link>{title_permalink=articles/index}{exp:xml_encode}?utm_source=Articles&utm_medium=RSS&utm_content=ArticleTitle&utm_campaign={url_title}{/exp:xml_encode}</link>
+		<guid>{title_permalink=articles/index}{exp:xml_encode}#When:{gmt_entry_date format="%H:%i:%sZ"}?utm_source=Articles&utm_medium=RSS&utm_content=ArticleTitle&utm_campaign={url_title}{/exp:xml_encode}</guid>
+		<description>
+		<![CDATA[
+		{intro}{remaining}
+		<hr />
+		<p>Published in: {categories}<a href="{site_url}/articles/category/{category_name}{category_url_title}/{exp:xml_encode}?utm_source=Articles&utm_medium=RSS&utm_content={category_name}&utm_campaign={url_title}{/exp:xml_encode}">{category_name}</a>{/categories}</p>
+		<p>Tagged as: {exp:tag:tags entry_id="{entry_id}" type="weblog" orderby="alpha" sort="asc" backspace="2"}<a href="{site_url}/articles/tag/{websafe_tag}/{exp:xml_encode}?utm_source=Articles&utm_medium=RSS&utm_content={websafe_tag}&utm_campaign={url_title}{/exp:xml_encode}">{tag}</a>, {/exp:tag:tags}</p>
+		]]&rt;
+		</description>
+		<dc:subject>{exp:xml_encode}{categories}{category_name}{/categories}{/exp:xml_encode}</dc:subject>
+		<dc:date>{gmt_entry_date format="%Y-%m-%dT%H:%i:%s%Q"}</dc:date>
+		</item>
+		{/exp:weblog:entries}
+		</channel>
+		</rss>
+		{/exp:rss:feed}]]></text>
+		<syntax-context>*</syntax-context>
+	</snippet>
+
+</action-recipes>

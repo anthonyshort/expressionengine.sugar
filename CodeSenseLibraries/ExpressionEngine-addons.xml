@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<codesense version="1.0">
+	
+		<set name="com.expressionengine.tags.addons">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(?1::$1}$2{/${completion}}$3)</transform-into>
+				</append-dynamic>
+			</behavior>
+			<completion string="exp:imgsizer:size" />
+			<completion string="exp:ee_typography" />
+			<completion string="exp:html_strip" />
+			<completion string="exp:freeform:form" />
+			<completion string="exp:char_limit" />
+		</set>
+		
+		<!-- Attributes -->
+		
+		<set name="com.expressionengine.tags.exp:char_limit.attributes">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>\s?|[^=]</matched-suffix>
+					<transform-into>(?1::="$1"$2)</transform-into>
+				</append-dynamic>
+			</behavior>
+			<completion string="total" />
+		</set>
+
+		<set name="com.expressionengine.tags.exp:imgsizer:size.attributes">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>\s?|[^=]</matched-suffix>
+					<transform-into>(?1::="$1"$2)</transform-into>
+				</append-dynamic>
+			</behavior>
+			<completion string="src" />
+			<completion string="alt" />
+			<completion string="width" />
+			<completion string="height" />
+			<completion string="quality" />
+			<completion string="mask" />
+			<completion string="mask_radius" />
+			<completion string="mask_threshold" />
+			<completion string="justcheck" />
+			<completion string="justurl" />
+			<completion string="title" />
+			<completion string="id" />
+			<completion string="class" />
+			<completion string="cache" />
+		</set>
+			
+		<set name="com.expressionengine.tags.exp:freeform:form.attributes">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>\s?|[^=]</matched-suffix>
+					<transform-into>(?1::="$1"$2)</transform-into>
+				</append-dynamic>
+			</behavior>
+			<completion string="form_name" />
+			<completion string="required" />
+			<completion string="notify" />
+			<completion string="template" />
+			<completion string="user_email_template" />
+			<completion string="send_user_email" />
+			<completion string="form_id" />
+			<completion string="form_class" />
+			<completion string="return" />
+		</set>
+		
+		<set name="com.expressionengine.tags.exp:ee_typography.attributes">
+			
+			<completion string="formatting">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into>(?1::="${1:XHTML/br/none/lite}"$2)</transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+			
+			<completion string="allowed_html">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into>(?1::="${1:safe/none/all}"$2)</transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+			
+			<completion string="auto_link">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into>(?1::="${1:y/n}"$2)</transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+			
+			<completion string="allow_image_urls">
+				<behavior>
+					<append-dynamic>
+						<matched-suffix>\s?|[^=]</matched-suffix>
+						<transform-into>(?1::="${1:y/n}"$2)</transform-into>
+					</append-dynamic>
+				</behavior>
+			</completion>
+			
+		</set>
+		
+		<!-- Attribute Values -->
+		
+		<set name="com.expressionengine.tags.attributes.formatting">
+			<completion string="xhtml"/>
+			<completion string="br"/>
+			<completion string="none"/>
+			<completion string="lite"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.attributes.allowed_html">
+			<completion string="safe"/>
+			<completion string="none"/>
+			<completion string="all"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.attributes.auto_link">
+			<completion string="y"/>
+			<completion string="n"/>
+		</set>
+		
+		<set name="com.expressionengine.tags.attributes.allow_image_urls">
+			<completion string="y"/>
+			<completion string="n"/>
+		</set>
+
+</codesense>

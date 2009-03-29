@@ -25,5 +25,21 @@
 	
 	<key>CFBundleVersion</key>
 	<string>1.0.1</string>
+	
+	<key>LSHasLocalizedDisplayName</key>
+	<false/>
+	
+	<key>NSAppleScriptEnabled</key>
+	<false/>
+	
+	<key>NSHumanReadableCopyright</key>
+	<string>(c) 2009 Anthony Short under the New BSD license</string>
+	
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	
+	<key>NSPrincipalClass</key>
+	<string>TEAforEspresso</string>
+	
 </dict>
 </plist>

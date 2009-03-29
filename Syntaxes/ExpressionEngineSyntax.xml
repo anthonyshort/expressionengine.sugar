@@ -15,7 +15,6 @@
 			<!-- SQL -->
 			<zone name="string.quoted.double.sql">
 	            <starts-with>
-	                <expression></expression>
 					<expression>(\w*)\s*(=*)\s*"\s*(?=(SELECT|INSERT|UPDATE|DELETE|CREATE|REPLACE|ALTER)\b)</expression>
 	                <capture number="0" name="punctuation.definition.string.begin.php"/>
 	            </starts-with>
@@ -30,6 +29,9 @@
 
 			<!-- HTML/CSS/JS -->
 			<include syntax="text.html.basic"/>
+			
+			<!-- XML -->
+			<include syntax="text.xml"/>
 
 			<!-- EE -->
 			<include collection="ee-comment"/>
@@ -41,7 +43,7 @@
 	
 			<zone name="ee.tag.self-closing.conditional">
 				<starts-with>
-	                <expression>\s*(\{)(if\:else|if\:elseif|if|\/if)</expression>
+	                <expression>\s*(\{)(if\:elseif|if\:else|if|\/if)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
 	                <capture number="2" name="ee.entity.name"/>
 	            </starts-with>
@@ -54,31 +56,9 @@
                 </subzones>
 			</zone>
 			
-			<!-- <zone name="ee.tag.open.conditional">
-		       <starts-with>
-				<expression>(\{)(if)</expression>
-					<capture number="1" name="ee.punctuation.definition.begin"/>
-                    <capture number="2" name="ee.entity.name"/>
-		        </starts-with>
-				<ends-with>
-					<expression>(/?)(})</expression>
-					<capture number="2" name="ee.punctuation.definition.end"/>
-				</ends-with>
-				<subzones>
-					<include collection="ee-tag-attributes" />
-				</subzones>
-			</zone>
-			
-			<zone name="ee.tag.close.conditional">
-	            <expression>({/)(if)(})</expression>
-				<capture number="1" name="ee.punctuation.definition.begin"/>
-               	<capture number="2" name="ee.entity.name"/>
-				<capture number="3" name="ee.punctuation.definition.end"/>
-			</zone> -->
-			
 			<zone name="ee.tag.open">
 		       <starts-with>
-				<expression>(\{)(exp:[a-zA-Z0-9:_]+|categories|date\_heading|date\_footer|entry_titles)</expression>
+				<expression>(\{)(exp:[a-zA-Z0-9:_]+|categories|date\_heading|date\_footer|entry_titles|categories|paginate)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
                     <capture number="2" name="ee.entity.name"/>
 		        </starts-with>
@@ -105,7 +85,7 @@
 		
 			<zone name="ee.tag.self-closing">
 				<starts-with>
-	                <expression>(\{)([a-zA-Z0-9_:]+|if\:else|if\:elseif)</expression>
+	                <expression>(\{)([a-zA-Z0-9_:]+)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
 	                <capture number="2" name="ee.entity.name"/>
 	            </starts-with>

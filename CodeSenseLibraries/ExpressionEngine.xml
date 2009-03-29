@@ -44,8 +44,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="reverse_related_entries"/>
 		<completion string="paginate"/>
 	</set>
-	
-	<!-- TODO Maybe move the embed and encode elsewhere -->
+
 	<set name="com.expressionengine.variables.global">
 		<behavior>
 			<append-dynamic>
@@ -86,14 +85,38 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 			</append-dynamic>
 		</behavior>
 		<completion string="embed"/>
-		<completion string="encode"/>
+		<completion string="encode">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(?1::="${1:you@yoursite.com}" title="${2:Email Address}"}$3)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 		<completion string="entry_date"/>
 		<completion string="expiration_date"/>
 		<completion string="edit_date"/>
 		<completion string="gmt_entry_date"/>
 		<completion string="gmt_edit_date"/>
 		<completion string="recent_comment_date"/>
+		<completion string="path">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(?1::="${1:template_group}/${2:template}"}$3)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
+		<completion string="assign_variable">
+			<behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(?1:::${2:variable_name}="${3:value}"}$6)</transform-into>
+				</append-dynamic>
+			</behavior>
+		</completion>
 	</set>
+	
 
 	<set name="com.expressionengine.variables.exp:weblog:entries.special">
 		<behavior>
@@ -291,7 +314,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="month"/>
 		<completion string="month_num"/>
 		<completion string="month_short"/>
-		<completion string="path"/>
+		
 		<completion string="year"/>
 		<completion string="year_short"/>
 	</set>	
@@ -341,7 +364,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="category_name"/>
 		<completion string="category_url_title"/>
 		<completion string="count"/>
-		<completion string="path"/>
+		
 		<completion string="total_results"/>
 	</set>
 	
@@ -357,7 +380,7 @@ CodeSense Libraries simply define lists of completions, categorized by keys. The
 		<completion string="category_image"/>
 		<completion string="category_name"/>
 		<completion string="category_url_title"/>
-		<completion string="path"/>
+		
 	</set>
 	
 	<set name="com.expressionengine.variables.exp:weblog:category_heading">

@@ -28,10 +28,11 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 		<completions>com.expressionengine.variables.global.special</completions>
 		<completions>com.expressionengine.variables.global</completions>
 		<completions>com.expressionengine.tags.modules</completions>
+		<completions>com.expressionengine.tags.addons</completions>
 		
 		<completions>com.expressionengine.pairs</completions>
 				
-		<complete-match capture="2">(\{)([a-zA-Z0-9-:]*)</complete-match>
+		<complete-match capture="2">(\{)([a-zA-Z0-9-:_]*)</complete-match>
 	</provider>
 	
 	<!-- Attributes -->
@@ -46,7 +47,7 @@ CodeSense Providers map contexts in a document to possible completions. The actu
 		<!-- it doesnt seem to be putting the captured attribute name into the completion string -->
 	    <selector>ee.attribute:has-child(attribute-name:capture(val))</selector>
 	    <completions>com.expressionengine.tags.attributes.${val}</completions>
-	    <complete-match capture="2">(\s)([a-zA-Z0-9-]*)</complete-match>
+	    <complete-match capture="2">(\s)([a-zA-Z0-9-\'\"]*)</complete-match>
 	  </provider>
 	
 	<!-- Context Specific Variables -->

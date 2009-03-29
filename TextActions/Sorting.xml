@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<action-sort-instructions>
+	
+	<sort-template>
+		<selector>tools.Snippets.single</selector>
+		<selector>tools.Snippets.id</selector>
+		<selector>tools.Snippets.count</selector>
+		<selector>tools.Snippets.path</selector>
+		<selector>tools.Snippets.date</selector>
+		<selector>tools.Snippets.pair</selector>
+		<selector>tools.Snippets.conditionals</selector>
+		<selector>tools.Snippets.misc</selector>
+		<selector>tools.Snippets.weblog</selector>
+		<selector>tools.Snippets.comment</selector>
+		<selector>tools.Snippets.email</selector>
+		<selector>tools.Snippets.member</selector>
+		<selector>tools.Templates</selector>
+	</sort-template>
+	
+</action-sort-instructions>

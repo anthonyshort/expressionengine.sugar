@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<tool-recipes>
+	
+	<!-- <tool type="toolbar" id="com.macrabbit.TextTools.NewTag" category="macrabbit">
+	
+		<class>ESTextActionToolbarTool</class>
+		<setup>
+			<main-action-selector>NewTag</main-action-selector>
+			<label>New Tag</label>
+			<palette-label>New Tag</palette-label>
+			<image>ToolNewEETag</image>
+		</setup>
+		
+	</tool>
+	 -->
+</tool-recipes>

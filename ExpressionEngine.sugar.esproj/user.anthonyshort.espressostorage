@@ -8,5 +8,17 @@
 	<true/>
 	<key>com.macrabbit.Espresso.Workspace.DisclosureCollapsed</key>
 	<false/>
+	<key>com.macrabbit.Espresso.Workspace.Tabs</key>
+	<dict>
+		<key>Tabs</key>
+		<array>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/anthonyshort/Library/Application%20Support/Espresso/Sugars/ExpressionEngine.sugar/TextActions/Actions.xml</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+		</array>
+	</dict>
 </dict>
 </plist>

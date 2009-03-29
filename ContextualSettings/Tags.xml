@@ -2,14 +2,15 @@
 
 <settings>
 
-	<setting name="tag-close-transform-expression">
-		<syntax-context>ee.tag</syntax-context>
-		<value>{/$0}</value>
-	</setting>
-	
-	<setting name="tag-close-transform-expression">
-		<syntax-context>html, html *, xml, xml *</syntax-context>
+<!-- 	<setting name="tag-close-transform-expression">
+		<syntax-context>html</syntax-context>
 		<value>&lt;/$0></value>
 	</setting>
 	
+	<setting name="ee-tag-close-transform-expression">
+		<syntax-context>ee</syntax-context>
+		<value>{/$0}</value>
+	</setting>
+	 -->
 </settings>
+

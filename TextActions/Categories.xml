@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<action-categories>
+	
+	<category id="actions.text.EE" show="sub">
+		<title>ExpressionEngine</title>		
+	</category>
+
+	<category id="tools.Snippets.single" show="sub">
+		<title>Single Tags</title>		
+	</category>
+	
+	<category id="tools.Snippets.date" show="sub">
+		<title>Dates</title>		
+	</category>
+	
+	<category id="tools.Snippets.count" show="sub">
+		<title>Counts</title>		
+	</category>
+	
+	<category id="tools.Snippets.id" show="sub">
+		<title>ID</title>		
+	</category>
+	
+	<category id="tools.Snippets.path" show="sub">
+		<title>Paths</title>		
+	</category>
+
+	<category id="tools.Snippets.pair" show="sub">
+		<title>Tag Pairs</title>		
+	</category>
+	
+	<category id="tools.Snippets.conditionals" show="sub">
+		<title>Conditionals</title>		
+	</category>
+	
+	<category id="tools.Snippets.misc" show="sub separated">
+		<title>Misc</title>		
+	</category>
+	
+	<category id="tools.Snippets.weblog" show="sub">
+		<title>Weblog</title>		
+	</category>
+	
+	<category id="tools.Snippets.comment" show="sub">
+		<title>Comments</title>		
+	</category>
+	
+	<category id="tools.Snippets.email" show="sub">
+		<title>Email</title>		
+	</category>
+	
+	<category id="tools.Snippets.member" show="sub">
+		<title>Member</title>		
+	</category>
+
+	<category id="tools.Templates" show="sub separated">
+		<title>Templates</title>		
+	</category>
+	
+	<category id="single" show="inline separated"></category>
+	<category id="id" show="inline separated"></category>
+	<category id="path" show="inline separated"></category>
+	<category id="date" show="inline separated"></category>
+	<category id="count" show="inline separated"></category>
+	
+	<category id="pair" show="inline separated"></category>
+	<category id="misc" show="inline separated"></category>
+	<category id="conditionals" show="inline separated"></category>
+	
+</action-categories>
