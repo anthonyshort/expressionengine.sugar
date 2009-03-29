@@ -16,7 +16,7 @@
 			<completion string="exp:html_strip" />
 			<completion string="exp:freeform:form" />
 			<completion string="exp:char_limit" />
-			<completion string="exp:lg_social_bookmarks" />
+			<completion string="lg_social_bookmarks" />
 			<completion string="exp:lg_better_meta_pi:template">
 				<behavior>
 					<append-dynamic>
@@ -29,7 +29,7 @@
 		
 		<!-- Attributes -->
 		
-		<set name="com.expressionengine.tags.exp:lg_social_bookmarks.attributes">
+		<set name="com.expressionengine.tags.lg_social_bookmarks.attributes">
 			<behavior>
 				<append-dynamic>
 					<matched-suffix>\s?|[^=]</matched-suffix>

@@ -75,7 +75,7 @@
 			<!-- For tag pairs which are included with addons -->
 			<zone name="ee.tag.open.special">
 		       <starts-with>
-				<expression>(\{)(social_sites)</expression>
+				<expression>(\{)(social_sites|lg_social_bookmarks)</expression>
 					<capture number="1" name="ee.punctuation.definition.begin"/>
                     <capture number="2" name="ee.entity.name"/>
 		        </starts-with>
