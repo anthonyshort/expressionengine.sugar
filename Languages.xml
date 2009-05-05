@@ -11,7 +11,7 @@
 
 <settings>
 	
-	<language id="expressionengine">
+	<language id="com.anthonyshort.expressionengine">
 		
 		<!-- Should really be syntax-name -->
 		<root-zone>text.html.ee</root-zone>

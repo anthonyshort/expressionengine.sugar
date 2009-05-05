@@ -24,7 +24,6 @@
 		<class>ESXHTMLItem</class>
 	</recipe>
 	
-	
 	<recipe name="ee.self-closing-tag">
 		<selector>ee.tag.open:has-child(name:capture(name), empty-element-marker), ee.tag.self-closing:has-child(name:capture(name)), ee.tag.open:has-child(name:capture(name), self-closing)</selector>
 		<class>ESXHTMLItem</class>

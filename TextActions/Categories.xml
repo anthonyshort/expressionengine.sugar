@@ -4,6 +4,10 @@
 	<category id="actions.text.EE" show="sub">
 		<title>ExpressionEngine</title>		
 	</category>
+	
+	<category id="actions.text.general" show="sub">
+		<title>Actions</title>		
+	</category>
 
 	<category id="tools.Snippets.single" show="sub">
 		<title>Single Tags</title>		
@@ -56,7 +60,8 @@
 	<category id="tools.Templates" show="sub separated">
 		<title>Templates</title>		
 	</category>
-	
+		
+	<category id="actions.tag" show="inline separated"></category>
 	<category id="single" show="inline separated"></category>
 	<category id="id" show="inline separated"></category>
 	<category id="path" show="inline separated"></category>

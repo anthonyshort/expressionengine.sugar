@@ -1,4 +1,29 @@
 /*
 	@theme ExpressionEngine Placeholder
-	@placeholder ee
+	@placeholder ee, html
 */
+
+@base {
+	color: #fff;
+	background-color: #000;
+}
+
+ee ee.tag > name, 
+ee ee.tag > punctuation,
+ee ee.tag > string,
+ee ee.tag.conditional { color:#8ce999; }
+
+ee ee.tag attribute-name  {
+	color:#9ecffd;
+	font-weight:bold; 
+}
+ee ee.tag attribute { 
+	color:#d144ca;
+}
+
+ee ee.tag.self-closing.conditional { background:rgba(37,59,118,0.35);}
+
+ee ee.tag.self-closing,
+ee ee.tag.self-closing > name, 
+ee ee.tag.self-closing > punctuation, 
+ee ee.tag.self-closing attribute-name { color:#9ecffd;}

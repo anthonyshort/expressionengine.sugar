@@ -15,6 +15,7 @@
 		<selector>tools.Snippets.email</selector>
 		<selector>tools.Snippets.member</selector>
 		<selector>tools.Templates</selector>
+		<selector>actions.tag</selector>
 	</sort-template>
 	
 </action-sort-instructions>

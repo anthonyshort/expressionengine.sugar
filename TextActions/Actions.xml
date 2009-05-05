@@ -9,276 +9,76 @@
 		<when-disabled>hide</when-disabled>
 	</snippet> -->
 	
-	<!-- Actions -->
+	<!-- Custom Actions -->
 	
-	<!-- <action-alias id="com.macrabbit.TextActions.EE.CloseTag.Alias" category="actions.text.EE">
+<!--	<action id="com.macrabbit.TextActions.CloseTag.Alias" category="actions.text.EE/actions.text.general">
 		<title>Close Tag (EE)</title>
 		<text-trigger key-equivalent="/">{</text-trigger>
 		<action-identifier>com.macrabbit.TextActions.CloseTag</action-identifier>
-		<syntax-context>ee, ee *</syntax-context>
-	</action-alias> -->
+		<syntaxes>ee, ee *</syntaxes>
+	</action>-->
 	
-	<!-- Single Tags -->
+		
+	<action id="com.anthonyshort.TextActions.EETagDocumentation" category="actions.text.EE/actions.tag">
+        <class>TEALoader</class>
+        <title>Documentation for tag</title>
+        <key-equivalent>control cmd e</key-equivalent>
+        <setup>
+            <script>tag_documentation.rb</script>
+            <input>selection</input>
+            <alternate>line</alternate>
+            <output>text</output>
+            <undo_name>Documentation for tag</undo_name>
+            <syntax-context>text.html.ee, text.html.ee * </syntax-context>
+        </setup>
+    </action>
+
+	<!-- TEA Actions -->
+
+	<action id="com.onecrayon.TextActions.WrapInSnippet.tag" category="actions.text.EE/actions.tag">
+		<class>TEAforEspresso</class>
+		<title>Wrap Selection In EE Tag</title>
+		<key-equivalent>control E</key-equivalent>
+		<setup>
+			<action>selections_to_snippets</action>
+			<options>
+				<dict>
+				
+					<key>first_snippet</key>
+					<string>{${1:exp:}}$SELECTED_TEXT{/${1/\s.*//}}$0</string>
+					
+					<key>undo_name</key>
+         			 <string>Wrap Selection In EE Tag</string>
+					
+				</dict>				
+			</options>
+		</setup>
+	</action>
 	
-	<snippet id="com.macrabbit.TextActions.EE.embed" category="actions.text.EE/tools.Snippets.single">
-		<title>Embed</title>
-		<text><![CDATA[{embed="$1" ${2:my_weblog}="${3:plants}"}]]></text>
-		<text-trigger>embed</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.encode" category="actions.text.EE/tools.Snippets.single">
-		<title>Encode</title>
-		<text><![CDATA[{encode="${1:you@yoursite.com}" title="${2:Email Address}"}]]></text>
-		<text-trigger>encode</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.variable" category="actions.text.EE/tools.Snippets.single">
-		<title>Assign Variable</title>
-		<text><![CDATA[{assign_variable:${1:variable_name}="${2:value}"}$3]]></text>
-		<text-trigger>var</text-trigger>
-		<syntax-context>ee, ee *, html</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.path" category="actions.text.EE/tools.Snippets.single">
-		<title>Path</title>
-		<text><![CDATA[{path="${1:template_group}/${2:template}"}$3]]></text>
-		<text-trigger>path</text-trigger>
-		<syntax-context>ee.html, html, html *, ee.tag, ee.tag *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.segment" category="actions.text.EE/tools.Snippets.single">
-		<title>Segment</title>
-		<text><![CDATA[{segment_${1:1}}]]></text>
-		<text-trigger>seg</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.switch" category="actions.text.EE/tools.Snippets.single">
-		<title>Switch</title>
-		<text><![CDATA[{switch="${1:resultOne}|${2:resultTwo}"}]]></text>
-		<text-trigger>switch</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Single Tag / Paths -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.url_title_path" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Url title path</title>
-		<text><![CDATA[{url_title_path}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.entry_id_path" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Entry id path</title>
-		<text><![CDATA[{entry_id_path}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.url_title" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Url title</title>
-		<text><![CDATA[{url_title}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.permalink" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Permalink</title>
-		<text><![CDATA[{permalink="${1:template_group}/${2:template}"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.page_url" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Page URL</title>
-		<text><![CDATA[{page_url}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.page_uri" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Page URI</title>
-		<text><![CDATA[{page_uri}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.comment_auto_path" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Comment Auto Path</title>
-		<text><![CDATA[{comment_auto_path}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.comment_url_title_auto_path" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Comment URL Title Auto Path</title>
-		<text><![CDATA[{comment_url_title_auto_path}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.comment_entry_id_auto_path" category="actions.text.EE/tools.Snippets.single/tools.Snippets.path">
-		<title>Comment Entry ID Auto Path</title>
-		<text><![CDATA[{comment_entry_id_auto_path}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Single tag / Dates -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.entry_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>Entry Date</title>
-		<text><![CDATA[{entry_date format="%Y %m %d"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.expiration_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>Expiration Date</title>
-		<text><![CDATA[{expiration_date format="%Y %m %d"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.edit_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>Edit Date</title>
-		<text><![CDATA[{edit_date format="%Y %m %d"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.gmt_entry_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>GMT Entry Date</title>
-		<text><![CDATA[{gmt_entry_date format="%Y %m %d"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.gmt_edit_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>GMT Edit Date</title>
-		<text><![CDATA[{gmt_edit_date format="%Y %m %d"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.recent_comment_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>Recent Comment Date</title>
-		<text><![CDATA[{recent_comment_date format="%Y %m %d"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.template_edit_date" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>Template Edit Date</title>
-		<text><![CDATA[{template_edit_date format="%Y %m %d %H:%i:%s"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.current_time" category="actions.text.EE/tools.Snippets.single/tools.Snippets.date">
-		<title>Current Time</title>
-		<text><![CDATA[{current_time format="%Y %m %d %H:%i:%s"}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Single tags / Count -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.count" category="actions.text.EE/tools.Snippets.single/tools.Snippets.count">
-		<title>Count</title>
-		<text><![CDATA[{count}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.total_results" category="actions.text.EE/tools.Snippets.single/tools.Snippets.count">
-		<title>Total Results</title>
-		<text><![CDATA[{total_results}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.absolute_count" category="actions.text.EE/tools.Snippets.single/tools.Snippets.count">
-		<title>Absolute Count</title>
-		<text><![CDATA[{absolute_count}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.trackback_total" category="actions.text.EE/tools.Snippets.single/tools.Snippets.count">
-		<title>Trackback Total</title>
-		<text><![CDATA[{trackback_total}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.comment_total" category="actions.text.EE/tools.Snippets.single/tools.Snippets.count">
-		<title>Comment Total</title>
-		<text><![CDATA[{comment_total}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.comment_tb_total" category="actions.text.EE/tools.Snippets.single/tools.Snippets.count">
-		<title>Comment TB Total</title>
-		<text><![CDATA[{comment_tb_total}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Single Tags / ID's -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.weblog_id" category="actions.text.EE/tools.Snippets.single/tools.Snippets.id">
-		<title>Weblog ID</title>
-		<text><![CDATA[{weblog_id}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.entry_id" category="actions.text.EE/tools.Snippets.single/tools.Snippets.id">
-		<title>Entry ID</title>
-		<text><![CDATA[{entry_id}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.entry_site_id" category="actions.text.EE/tools.Snippets.single/tools.Snippets.id">
-		<title>Entry Site ID</title>
-		<text><![CDATA[{entry_site_id}]]></text>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Misc -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.attribute" category="actions.text.EE/tools.Snippets.misc">
-		<title>Attribute</title>
-		<text><![CDATA[${2:attribute}="${3:value}"]]></text>
-		<text-trigger>att</text-trigger>
-		<syntax-context>ee.tag, ee.tag end</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.stylesheet" category="actions.text.EE/tools.Snippets.misc">
-		<title>Stylesheet</title>
-		<text><![CDATA[<link rel="stylesheet" type="text/css" media="${1:screen}" href="{stylesheet=${2:weblog}/${3:weblog_css}}">]]></text>
-		<text-trigger>style</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Conditionals -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.conditional.if" category="actions.text.EE/tools.Snippets.conditionals">
-		<title>if</title>
-		<text><![CDATA[{if ${2:variable}=="${3:value}"}$4{/if}]]></text>
-		<text-trigger>if</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.conditional.else" category="actions.text.EE/tools.Snippets.conditionals">
-		<title>if:else</title>
-		<text><![CDATA[{if ${2:variable}=="${3:value}"}$4{if:else}$5{/if}]]></text>
-		<text-trigger>ifelse</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.conditional.elseif" category="actions.text.EE/tools.Snippets.conditionals">
-		<title>if:elseif</title>
-		<text><![CDATA[{if ${2:variable}=="${3:value}"}$4{if:elseif ${5:variable}=="${6:value}"}$7{/if}]]></text>
-		<text-trigger>ifelseif</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<!-- Tag Pairs -->
-	
-	<snippet id="com.macrabbit.TextActions.EE.tagpair" category="actions.text.EE/tools.Snippets.pair">
-		<title>Tag Pair</title>
-		<text><![CDATA[{${1:tag_pair}}{/$1}]]></text>
-		<text-trigger>tag</text-trigger>
-		<syntax-context>ee, ee *</syntax-context>
-	</snippet>
-	
-	<snippet id="com.macrabbit.TextActions.EE.expplugin" category="actions.text.EE/tools.Snippets.pair">
-		<title>exp:plugin</title>
-		<text><![CDATA[{exp:${1:plugin} ${2:parameters}}$3{/exp:$1}]]></text>
-		<text-trigger>exp</text-trigger>
-		<syntax-context>ee, ee *, html</syntax-context>
-	</snippet>
+	<action id="com.onecrayon.TextActions.WrapLinesInSnippet.tag" category="actions.text.EE/actions.tag">
+		<class>TEAforEspresso</class>
+		<title>Wrap Selected Lines In EE Tag</title>
+		<key-equivalent>cmd control E</key-equivalent>
+		<setup>
+			<action>selected_lines_to_snippets</action>
+			<options>
+				<dict>
+				
+					<key>first_snippet</key>
+					<string>{${1:tag}}$SELECTED_TEXT{/${1/\s.*//}}</string>
+					
+					<key>following_snippet</key>
+					<string>{$1}$SELECTED_TEXT{/${1/\s.*//}}</string>
+					
+					<key>final_append</key>
+					<string>$0</string>
+					
+					<key>undo_name</key>
+					<string>Wrap Selected Lines In Tag</string>
+
+				</dict>
+			</options>
+		</setup>
+	</action>
 
 </action-recipes>
